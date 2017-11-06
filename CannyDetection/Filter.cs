@@ -19,7 +19,7 @@ namespace CannyDetection
 
         }
 
-        public static bool Gaussian(Bitmap b, int nWeight)//default to 4
+        public static Bitmap Gaussian(Bitmap b, int nWeight)//default to 4
         {
             ConvMatrix m = new ConvMatrix();
             m.SetAll(1);
@@ -48,11 +48,11 @@ namespace CannyDetection
             return b = (Bitmap)bmap.Clone();
         }
 
-        public static bool Conv(Bitmap b, ConvMatrix m)
+        public static Bitmap Conv(Bitmap b, ConvMatrix m)
         {
             // Avoid divide by zero errors
             if (0 == m.Factor)
-                return false; Bitmap
+                return b; Bitmap
 
             // GDI+ still lies to us - the return format is BGR, NOT RGB. 
             bSrc = (Bitmap)b.Clone();
@@ -138,7 +138,7 @@ namespace CannyDetection
 
             b.UnlockBits(bmData);
             bSrc.UnlockBits(bmSrc);
-            return true;
+            return b;
         }
 
     }

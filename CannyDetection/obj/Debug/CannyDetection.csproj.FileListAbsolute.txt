@@ -8,3 +8,13 @@ C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\CannyDe
 C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\CannyDetection\bin\Debug\CannyDetection.pdb
 C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.exe
 C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.pdb
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\CannyDetection.exe.config
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\CannyDetection.exe
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\CannyDetection.pdb
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.csprojResolveAssemblyReference.cache
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.Form1.resources
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.Properties.Resources.resources
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.csproj.GenerateResource.Cache
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.csproj.CoreCompileInputs.cache
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.exe
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.pdb

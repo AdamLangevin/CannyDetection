@@ -4,21 +4,21 @@ using System.Drawing.BitmapData;
 
 namespace CannyDetection
 {
-  public static PixelDifferentiator(Bitmap src)
+  public class PixelDifferentiator
   {
-    private Bitmap b;
+    //private Bitmap b;
     private BitmapData bData;
 
-    public PixelDifferentiator(Bitmap src)
+    public PixelDifferentiator()
     {
-      b = src;
+      //b = src;
     }
 
     /*Convolutional matrix operation, using the Sobel operators. This
     referantially calculates the gradient of the Bitmap supplied to the calss.
     the magic happens here.
     */
-    public static Bitmap differentiate()
+    public static Bitmap differentiate(Bitmap b)
     {
       double xr=0;
       double xg=0;
@@ -70,12 +70,13 @@ namespace CannyDetection
             cg = Math.Sqrt((xg*xg) + (yg*yg));
             cr = Math.Sqrt((xr*xr) + (yr*yr));
 
-            if(cb>255)  cb=255;
-            elseif(cb<0)cb=0;
+
+            if (cb > 255)cb = 255;
+            else if (cb<0)cb = 0;
             if(cg>255)  cg=255;
-            elseif(cg<0)cg=0;
+            else if(cg<0)cg=0;
             if(cr>255)  cr=255;
-            elseif(cr<0)cr=0;
+            else if(cr<0)cr=0;
 
             result[boff] = (byte)(cb);
             result[boff +1] = (byte)(cg);
@@ -91,21 +92,21 @@ namespace CannyDetection
     //Sobel matrix operator in the x plane
     private static double[,] Sobelx()
     {
-      return d = new double[,] = {
-                                  {-1,0,1},
-                                  {-2,0,2},
-                                  {-1,0,1}
-                                  };
+      return d = new double[3,3] = (
+                                  (-1,0,1),
+                                  (-2,0,2),
+                                  (-1,0,1)
+                                  );
     }
 
     //Sobel matrix operator in the y plane
     private static double[,] Sobely()
     {
-      return d = new double[,] = {
-                                {1,2,1},
-                                {0,0,0},
-                                {-1,-2,-1}
-                                };
+      return d = new double[3,3] = (
+                                (1,2,1),
+                                (0,0,0),
+                                (-1,-2,-1)
+                                );
     }
 
   }

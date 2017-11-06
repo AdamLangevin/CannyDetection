@@ -12,8 +12,8 @@ namespace CannyDetection
 {
     public partial class Form1 : Form
     {
-        private Bitmap m;
-        private Bitmap u;
+        private Bitmap m;      //active bitmap field
+        private Bitmap u;      //copy of active bitmap
         private MainMenu mainMenu;
         private double zoom =1.0;
 
@@ -85,16 +85,21 @@ namespace CannyDetection
         private void GaussianItem(object sender, EventArgs e)
         {
             u = (Bitmap)m.Clone();
-            if(Filter.Gaussian(m, 4))
-            {
-                this.Invalidate();
-            }
+            m = Filter.Gaussian(m, 4);
+            this.Refresh();
         }
 
         private void GrayScaleItem(object sender, EventArgs e)
         {
             u = (Bitmap)m.Clone();
             m = Filter.GrayScale(m);
+            this.Refresh();
+        }
+
+        private void sobleClick(object sender, EventArgs e)
+        {
+            u = (Bitmap)m.Clone();
+            m = PixelDifferentiator.Differentiate(m);
             this.Refresh();
         }
     }
