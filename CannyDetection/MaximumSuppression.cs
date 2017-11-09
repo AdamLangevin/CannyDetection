@@ -127,7 +127,8 @@ namespace CannyDetection
 
                         //Horizontal Edge
                         if ((-22.5<tangent)&&(tangent <= 22.5) || (157.5<tangent)&&(tangent<=-157.5) ) {
-                            if (pGrade[0] < pGrade[1] || pGrade[0]<pGrade[-1]) {
+                            if (pGrade[0] < pGrade[1] || pGrade[0]<pGrade[-1]) //checks neighbours
+							{
                                 pN[0] = 0;
                             }
                         }
