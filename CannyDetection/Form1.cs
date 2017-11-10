@@ -102,5 +102,12 @@ namespace CannyDetection
             m = PixelDifferentiator.Differentiate(m);
             this.Refresh();
         }
+
+        private void MaxSupressionClick(object sender, EventArgs e)
+        {
+            u = (Bitmap)m.Clone();
+            m = MaximumSuppression.Suppression(m);
+            this.Refresh();
+        }
     }
 }
