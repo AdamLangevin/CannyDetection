@@ -184,11 +184,12 @@ namespace CannyDetection
                         {
                             if (c1 < c2 || c1 < c3)
                             {
-                                NMax[x,y] = 0;
+                                NMax[x, y] = 0;
                                 //pN[pixleSize + strideG] = 0;
                                 //pN[1 + pixleSize + strideG] = 0;
                                 //pN[2 + pixleSize + strideG] = 0;
                                 //pN[3 + pixleSize + strideG] = 0;
+                            
                             }
                         }
 
