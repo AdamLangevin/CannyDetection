@@ -48,7 +48,7 @@ namespace CannyDetection
         {
             OpenFileDialog open = new OpenFileDialog();
 
-            open.InitialDirectory = "c:\\";
+            open.InitialDirectory = "c:\\Users\\misfi\\Pictures";
             open.Filter = "Bitmap Files(*.bmp)|*.bmp|Jpeg files(*.jpg)|*.jpg|Png files(*.png)|*.png|All Vaild files(*.bmp/*.png/*.jpg)|*.bmp/*.png/*.jpg";
             open.FilterIndex = 2;
             open.RestoreDirectory = true;

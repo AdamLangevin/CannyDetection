@@ -25,9 +25,12 @@ namespace CannyDetection
         double yr=0.0;
         double yg=0.0;
         double yb=0.0;
+        double xa = 0.0;
+        double ya = 0.0;
         double cr=0.0;
         double cg=0.0;
         double cb=0.0;
+        double ca = 0.0;
 
         int foff=1;
         int coff=0;
@@ -36,67 +39,157 @@ namespace CannyDetection
         double[,] xKern = Sobelx;
         double[,] yKern = Sobely;
 
-        BitmapData bData = b.LockBits(new Rectangle(0,0,b.Width,b.Height),
-                        ImageLockMode.ReadOnly,
-                        PixelFormat.Format32bppArgb);
+        BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
+                                        ImageLockMode.ReadOnly,
+                                        PixelFormat.Format32bppArgb);
+
+        Bitmap res = (Bitmap)b.Clone();
+
+        BitmapData resD = res.LockBits(new Rectangle(0, 0, b.Width, b.Height),
+                                        ImageLockMode.WriteOnly,
+                                        PixelFormat.Format32bppArgb);
 
         byte[] u = new byte[bData.Stride * b.Height];
         byte[] result = new byte[bData.Stride * b.Height];
+        
+        
+        unsafe {
+            byte* p = (byte*)(void*)resD.Scan0;
+            int nOffset = bData.Stride - b.Width * 4;
+            int nWdith = b.Width - 2;
+            int nHeight = b.Height - 2;
+            int pixelSize = 4;
+            int stride = resD.Stride;
 
-        Marshal.Copy(bData.Scan0, u, 0, bData.Stride * b.Height);
+            for (int y =1; y < b.Height - 1; y++) {
+                for (int x=1; x < b.Width - 1; x++) {
+                        xr = p[0] * -1
+                            + p[2 * pixelSize]
+                            + p[stride] * -2
+                            + p[stride + 2 * pixelSize] * 2
+                            + p[2 * stride] * -1
+                            + p[2 * stride + 2 * pixelSize];
+                        yr = p[0]
+                            + p[pixelSize] * 2
+                            + p[2 * pixelSize]
+                            + p[2 * stride] * -1
+                            + p[pixelSize + 2 * stride] * -2
+                            + p[2 * stride + 2 * pixelSize] * -1;
 
-        b.UnlockBits(bData);
+                        xb = p[1] * -1
+                            + p[1 + 2 * pixelSize]
+                            + p[1 + stride] * -2
+                            + p[1 + stride + 2 * pixelSize] * 2
+                            + p[1 + 2 * stride] * -1
+                            + p[1 + 2 * stride + 2 * pixelSize];
+                        yb = p[1] 
+                            + p[1 + pixelSize] * 2
+                            + p[1 + 2 * pixelSize]
+                            + p[1 + 2 * stride] * -1
+                            + p[1 + pixelSize + 2 * stride] * -2
+                            + p[1 + 2 * stride + 2 * pixelSize] * -1;
 
-        for(int offY=foff; offY < b.Height-foff; offY++)
-        {
-            for(int offX=foff; offX < b.Width-foff; offX++)
-            {
-            xr= xg= xb= yr= yg= yb= 0;
-            cr= cg= cb =0.0;
-            boff= offY*bData.Stride + offX*4;
+                        xg = p[2] * -1
+                            + p[2 + 2 * pixelSize] 
+                            + p[2 + stride] * -2
+                            + p[2 + stride + 2 * pixelSize] * 2
+                            + p[2 + 2 * stride] * -1
+                            + p[2 + 2 * stride + 2 * pixelSize];
+                        yg = p[2]
+                            + p[2 + pixelSize] * 2
+                            + p[2 + 2 * pixelSize]
+                            + p[2 + 2 * stride] * -1
+                            + p[2 + pixelSize + 2 * stride] * -2
+                            + p[2 + 2 * stride + 2 * pixelSize] * -1;
 
-            for(int y=-foff; y<=foff; y++)
-            {
-                for(int x=-foff; x<=foff; x++)
-                {
+                        xa = p[3] * -1
+                            + p[3 + 2 * pixelSize]
+                            + p[3 + stride] * -2
+                            + p[3 + stride + 2 * pixelSize] * 2
+                            + p[3 + 2 * stride] * -1
+                            + p[3 + 2 * stride + 2 * pixelSize];
+                        ya = p[3]
+                            + p[3 + pixelSize] * 2
+                            + p[3 + 2 * pixelSize]
+                            + p[3 + 2 * stride] * -1
+                            + p[3 + pixelSize + 2 * stride] * -2
+                            + p[3 + 2 * stride + 2 * pixelSize];
 
-                    coff = boff + x*4 + y*bData.Stride;
-                    xb += (double)(u[coff]) * xKern[y+foff, x+foff];
-                    xg += (double)(u[coff+1]) * xKern[y+foff, x+foff];
-                    xr += (double)(u[coff+2]) * xKern[y+foff, x+foff];
-                    yb += (double)(u[coff]) * yKern[y+foff, x+foff];
-                    yg += (double)(u[coff+1]) * yKern[y+foff, x+foff];
-                    yr += (double)(u[coff+2]) * yKern[y+foff, x+foff];
-                }
+                        cr = Math.Sqrt(xr*xr + yr*yr);
+                        cb = Math.Sqrt(xb*xb + yb*yb);
+                        cg = Math.Sqrt(xg*xg + yg*yg);
+                        ca = Math.Sqrt(xa * xa + ya * ya);
+
+                        if (cr > 255) cr = 255;
+                        else if(cr < 0) cr = 0;
+                        if (cb > 255) cb = 255;
+                        else if (cb < 0) cb = 0;
+                        if (cg > 255) cg = 255;
+                        else if (cg < 0) cg = 0;
+                        if (ca > 255) ca = 255;
+                        else if (ca < 0) ca = 0;
+
+                        p[0] = (byte)cr;
+                        p[1] = (byte)cb;
+                        p[2] = (byte)cg;
+                        p[3] = (byte)ca;
+
+                        xr = yr = xb = yb = xg = yg = xa = ya = ca = cr = cg = cb = 0;
+                        //Console.WriteLine("x: " + x + " y: " + y);
+                        //Console.ReadLine();
+                        p += 4;
+                    }
+                    p += nOffset;
             }
+                
 
-            cb = Math.Sqrt((xb*xb) + (yb*yb));
-            cg = Math.Sqrt((xg*xg) + (yg*yg));
-            cr = Math.Sqrt((xr*xr) + (yr*yr));
-
-
-            if (cb > 255)cb = 255;
-            else if (cb<0)cb = 0;
-            if(cg>255)  cg=255;
-            else if(cg<0)cg=0;
-            if(cr>255)  cr=255;
-            else if(cr<0)cr=0;
-
-            result[boff] = (byte)(cb);
-            result[boff +1] = (byte)(cg);
-            result[boff +2] = (byte)(cr);
-            result[boff +3] = 255;
-            }
         }
-
-        Bitmap res = new Bitmap(b.Width, b.Height);
-
-        BitmapData resD = res.LockBits(new Rectangle(0,0,b.Width,b.Height),
-                                        ImageLockMode.WriteOnly,
-                                        PixelFormat.Format32bppArgb);
         
 
-        Marshal.Copy(result, 0, resD.Scan0, result.Length);
+        //for(int offY=foff; offY < b.Height-foff; offY++)
+        //{
+        //    for(int offX=foff; offX < b.Width-foff; offX++)
+        //    {
+        //    xr= xg= xb= yr= yg= yb= 0;
+        //    cr= cg= cb =0.0;
+        //    boff= offY*bData.Stride + offX*4;
+
+        //    for(int y=-foff; y<=foff; y++)                //loop for neighbours
+        //    {
+        //        for(int x=-foff; x<=foff; x++)
+        //        {
+
+        //            coff = boff + x*4 + y*bData.Stride;
+        //            xb += (double)(u[coff]) * xKern[y+foff, x+foff];
+        //            xg += (double)(u[coff+1]) * xKern[y+foff, x+foff];
+        //            xr += (double)(u[coff+2]) * xKern[y+foff, x+foff];
+        //            yb += (double)(u[coff]) * yKern[y+foff, x+foff];
+        //            yg += (double)(u[coff+1]) * yKern[y+foff, x+foff];
+        //            yr += (double)(u[coff+2]) * yKern[y+foff, x+foff];
+        //        }
+        //    }
+
+        //    cb = Math.Sqrt((xb*xb) + (yb*yb));
+        //    cg = Math.Sqrt((xg*xg) + (yg*yg));
+        //    cr = Math.Sqrt((xr*xr) + (yr*yr));
+
+
+        //    if (cb > 255)cb = 255;
+        //    else if (cb<0)cb = 0;
+        //    if(cg>255)  cg=255;
+        //    else if(cg<0)cg=0;
+        //    if(cr>255)  cr=255;
+        //    else if(cr<0)cr=0;
+
+        //    result[boff] = (byte)(cb);
+        //    result[boff +1] = (byte)(cg);
+        //    result[boff +2] = (byte)(cr);
+        //    result[boff +3] = 255;
+        //    }
+        //}
+        b.UnlockBits(bData);
+        
+
         res.UnlockBits(resD);
         return res;
 

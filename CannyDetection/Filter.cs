@@ -29,7 +29,7 @@ namespace CannyDetection
             return Filter.Conv(b, m);
         }
 
-        public static Bitmap GrayScale(Bitmap b)
+        public static Bitmap GrayScale(Bitmap b) //needs to change to unsafe, take out setpixel
         {
             Bitmap temp = (Bitmap)b;
             Bitmap bmap = (Bitmap)temp.Clone();
@@ -72,7 +72,7 @@ namespace CannyDetection
             {
                 byte* p = (byte*)(void*)Scan0;
                 byte* pSrc = (byte*)(void*)SrcScan0;
-                int nOffset = stride - b.Width * 3;
+                int nOffset = stride - b.Width * 4;
                 int nWidth = b.Width - 2;
                 int nHeight = b.Height - 2;
 

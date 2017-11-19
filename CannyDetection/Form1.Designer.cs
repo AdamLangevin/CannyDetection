@@ -41,11 +41,11 @@
             this.canny1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edgeDetectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thresholdingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maxSuppressionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drawCircleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maxSuppressionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,21 +76,21 @@
             // LoadItem
             // 
             this.LoadItem.Name = "LoadItem";
-            this.LoadItem.Size = new System.Drawing.Size(100, 22);
+            this.LoadItem.Size = new System.Drawing.Size(152, 22);
             this.LoadItem.Text = "Load";
             this.LoadItem.Click += new System.EventHandler(this.LoadItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveItem);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitItem);
             // 
@@ -114,10 +114,10 @@
             this.filterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gaussianToolStripMenuItem,
             this.sobleToolStripMenuItem,
+            this.maxSuppressionToolStripMenuItem,
             this.canny1ToolStripMenuItem,
             this.edgeDetectToolStripMenuItem,
-            this.thresholdingToolStripMenuItem,
-            this.maxSuppressionToolStripMenuItem});
+            this.thresholdingToolStripMenuItem});
             this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
             this.filterToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.filterToolStripMenuItem.Text = "Canny";
@@ -155,6 +155,13 @@
             this.thresholdingToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.thresholdingToolStripMenuItem.Text = "Thresholding";
             // 
+            // maxSuppressionToolStripMenuItem
+            // 
+            this.maxSuppressionToolStripMenuItem.Name = "maxSuppressionToolStripMenuItem";
+            this.maxSuppressionToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.maxSuppressionToolStripMenuItem.Text = "Max Suppression";
+            this.maxSuppressionToolStripMenuItem.Click += new System.EventHandler(this.MaxSupressionClick);
+            // 
             // processingToolStripMenuItem
             // 
             this.processingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -182,13 +189,6 @@
             this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
             this.distanceToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.distanceToolStripMenuItem.Text = "Distance";
-            // 
-            // maxSuppressionToolStripMenuItem
-            // 
-            this.maxSuppressionToolStripMenuItem.Name = "maxSuppressionToolStripMenuItem";
-            this.maxSuppressionToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.maxSuppressionToolStripMenuItem.Text = "Max Suppression";
-            this.maxSuppressionToolStripMenuItem.Click += new System.EventHandler(this.MaxSupressionClick);
             // 
             // Form1
             // 
