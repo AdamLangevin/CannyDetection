@@ -130,15 +130,17 @@ namespace CannyDetection
                         //else if (nPixel < 0) nPixel = 0;
                         //Grade[x+1,y] = (byte)nPixel;
 
-                        c1 = pY[0] * pY[0];
-                        c2 = pX[0] * pX[0];
+                        c1 = ((pY[0] + pY[1] + pY[2] + pY[3]) / 4 )* ((pY[0] + pY[1] + pY[2] + pY[3]) / 4); 
+                        c2 = ((pX[0] + pX[1] + pX[2] + pX[3]) / 4 )* ((pX[0] + pX[1] + pX[2] + pX[3]) / 4);
                         nPixel = ((float)(Math.Sqrt(c1 +c2)));
                         if (nPixel > 255) nPixel = 255;
                         else if (nPixel < 0) nPixel = 0;
                         Grade[x,y] = (byte)nPixel;
 
-                        //pY += 4;
-                        //pX += 4;
+                        pY += 4;
+                        pX += 4;
+                        //pY++;
+                        //pX++;
                     }
                     pY += nOffsetY;
                     pX += nOffsetX;
@@ -158,8 +160,8 @@ namespace CannyDetection
 
                         //c1 = pX[pixleSize + strideG] + pX[1 + pixleSize + strideG] + pX[2 + pixleSize + strideG] + pX[3 + pixleSize + strideG];
                         //c2 = pY[pixleSize + strideG] + pY[1 + pixleSize + strideG] + pY[2 + pixleSize + strideG] + pY[3 + pixleSize + strideG];
-                        c1 = pX[0];
-                        c2 = pY[0];
+                        c1 = (pX[0] + pX[1] + pX[2] + pX[3])/4;
+                        c2 = (pY[0] + pY[1] + pY[2] + pY[3])/4;
                         if (c1 == 0) {
                             tangent = 90F;
                         } else {
@@ -248,9 +250,9 @@ namespace CannyDetection
                         c3 = 0;
 
                         //pGrade += 4;
-                        pN += 1;
-                        pY += 1;
-                        pX += 1;
+                        //pN += 4;
+                        pY += 4;
+                        pX += 4;
                     }
                     //pGrade += nOffsetG;
                     //pN += nOffsetN;
@@ -264,9 +266,9 @@ namespace CannyDetection
                 float min, max;
                 max = 100;
                 min = 0;
-                for (int x=1; x<(b.Width - 2); x++)
+                for (int x=1; x<(b.Width - 1); x++)
                 {
-                    for (int y=1; y<(b.Height - 2); y++)
+                    for (int y=1; y<(b.Height - 1); y++)
                     {
                         if(postHyst[x,y] > max)
                         {
@@ -279,16 +281,55 @@ namespace CannyDetection
                     }
                 }
 
+                float MaxHyst = 20f;
+                float MinHyst = 10f;
+                float[,] Edges = new float[b.Width, b.Height];
 
+                for (int x = 1; x< b.Width - 1; x++)
+                {
+                    for (int y = 1; y<b.Height - 1; y++)
+                    {
 
+                    }
+                }
             }//end of unsafe code
             NonMax.UnlockBits(NonData);
             divY.UnlockBits(divYData);
             divX.UnlockBits(divXData);
             grade.UnlockBits(gradeData);
-          
 
-            return divX;
+            NonMax = convertToBitmap(Grade, b.Width, b.Height);
+
+
+            return NonMax;
+        }
+
+        public static Bitmap convertToBitmap(float[,] src, int width, int height)
+        {
+            Bitmap bits= new Bitmap(width, height);
+            BitmapData bitsD = bits.LockBits(new Rectangle(0, 0, width, height),
+                                            ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+            unsafe {
+                byte* p = (byte*)(void*)bitsD.Scan0;
+
+                for (int y=0; y<height; y++)
+                {
+                    for (int x=0; x<width; x++)
+                    {
+                        p[0] = (byte)((int)src[x, y]);
+                        p[1] = (byte)((int)src[x, y]);
+                        p[2] = (byte)((int)src[x, y]);
+                        p[3] = (byte)((int)src[x, y]);
+
+                        p += 4;
+                    }
+                    p += (bitsD.Stride - (bitsD.Width * 4));
+                }
+            }
+            bits.UnlockBits(bitsD);
+
+            return bits;
         }
 
     }
