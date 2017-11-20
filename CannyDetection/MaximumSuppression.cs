@@ -52,7 +52,6 @@ namespace CannyDetection
             BitmapData divXData = divX.LockBits(new Rectangle(0, 0, b.Width, b.Height),
                         ImageLockMode.ReadOnly,
                         PixelFormat.Format32bppArgb);
-
             BitmapData divYData = divY.LockBits(new Rectangle(0, 0, b.Width, b.Height),
                        ImageLockMode.ReadOnly,
                        PixelFormat.Format32bppArgb);
@@ -260,6 +259,7 @@ namespace CannyDetection
                     pX += nOffsetX;
                     pY += nOffsetY;
                 }
+
                 float[,] postHyst = new float[b.Width, b.Height];
 
                 postHyst = NMax.Clone() as float[,];
