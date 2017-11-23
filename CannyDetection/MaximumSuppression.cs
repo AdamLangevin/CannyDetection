@@ -21,8 +21,6 @@ namespace CannyDetection
             Bitmap divY;
             Bitmap grade;
             Bitmap NonMax;
-
-            
             /*
             BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
                                         ImageLockMode.ReadOnly,
@@ -52,8 +50,8 @@ namespace CannyDetection
 
             divY = Filter.Conv(divY, m);
 
-            int[,] aDivX = convertToArray(divX);
-            int[,] aDivY = convertToArray(divY);
+            float[,] aDivX = convertToArray(divX);
+            float[,] aDivY = convertToArray(divY);
 
             BitmapData divXData = divX.LockBits(new Rectangle(0, 0, b.Width, b.Height),
                         ImageLockMode.ReadOnly,
@@ -70,7 +68,7 @@ namespace CannyDetection
 
             float[,] Grade = new float[b.Width, b.Height];
             float[,] NMax = new float[b.Width, b.Height];
-            float[,] postHyst = new float[b.Width, b.Height];
+            int[,] postHyst = new int[b.Width, b.Height];
             Edges = new int[b.Width, b.Height];
 
             int strideX = divXData.Stride;
@@ -217,20 +215,26 @@ namespace CannyDetection
                 }
 
 
-                postHyst = NMax.Clone() as float[,];
+                for (int x = 1; x < b.Width - 1; x++)
+                {
+                    for (int y = 1; y < b.Height - 1; y++)
+                    {
+                        postHyst[x, y] = (int)NMax[x, y];
+                    }
+                }
 
                 float min, max;
-                max = 100;
-                min = 0;
-                for (int x=1; x<(b.Width - 1); x++)
+                max = 0;
+                min = 100;
+                for (int x=1; x<=(b.Width - 1); x++)
                 {
-                    for (int y=1; y<(b.Height - 1); y++)
+                    for (int y=1; y<=(b.Height - 1); y++)
                     {
                         if(postHyst[x,y] > max)
                         {
                             max = postHyst[x, y];
                         }
-                        if(postHyst[x,y] < min || postHyst[x,y] > 0)
+                        if(postHyst[x,y] < min && postHyst[x,y] > 0)
                         {
                             min = postHyst[x, y];
                         }
@@ -240,8 +244,8 @@ namespace CannyDetection
                 EdgeMap = new int[b.Width, b.Height];
                 Visited = new int[b.Width, b.Height];
 
-                float MaxHyst = 80f;
-                //float MinHyst = 10f;
+                float MaxHyst = 75f;
+                float MinHyst = 60f;
 
                 for (int x = 1; x< b.Width - 1; x++)
                 {
@@ -251,8 +255,13 @@ namespace CannyDetection
                         {
                             Edges[x, y] = 1;
                         }
+                        if((postHyst[x,y] < MaxHyst) && (postHyst[x,y] >= MinHyst))
+                        {
+                            Edges[x, y] = 0;
+                        }
                     }
                 }
+
             }//end of unsafe code
             NonMax.UnlockBits(NonData);
             divY.UnlockBits(divYData);
@@ -326,9 +335,9 @@ namespace CannyDetection
 
         }
 
-        public static int[,] convertToArray(Bitmap b)
+        public static float[,] convertToArray(Bitmap b)
         {
-            int[,] res = new int[b.Width, b.Height];
+            float[,] res = new float[b.Width, b.Height];
             BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
                                             ImageLockMode.ReadOnly,
                                             PixelFormat.Format32bppArgb);
@@ -341,7 +350,7 @@ namespace CannyDetection
                 {
                     for(int x=0; x<b.Width; x++)
                     {
-                        res[x, y] = (int)((p[0] + p[1] + p[2])/3.0);
+                        res[x, y] = (float)((p[0] + p[1] + p[2] + p[3])/4.0);
                         p += 4;
                     }
                     p += (bData.Stride - (bData.Width * 4));
@@ -354,14 +363,15 @@ namespace CannyDetection
 
         public static void threshold(int[,] Edges, int w, int h)
         {
-            for(int x=1; x<=w-2; x++)
+
+            for(int x=1; x<=w-1; x++)
             {
-                for(int y=1; y<=h-2; y++)
+                for(int y=1; y<=h-1; y++)
                 {
                     if(Edges[x,y] == 1)
                     {
-                        travers(x, y);
                         EdgeMap[x, y] = 255;
+                        travers(x, y);
                         Visited[x, y] = 1;
                     }
                 }

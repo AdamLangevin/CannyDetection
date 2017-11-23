@@ -21,31 +21,132 @@ namespace CannyDetection
 
         public static Bitmap Gaussian(Bitmap b, int nWeight)//default to 4
         {
-            ConvMatrix m = new ConvMatrix();
-            m.SetAll(1);
-            m.Pixel = nWeight;
-            m.TopMid = m.MidLeft = m.MidRight = m.BottomMid = 2;
-            m.Factor = nWeight + 12;
-            return Filter.Conv(b, m);
+            int sum = 0;
+            int sum2 = 0;
+            int sum3 = 0;
+            int size = 5;
+            BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
+                                            ImageLockMode.ReadOnly,
+                                            PixelFormat.Format32bppArgb);
+            int weight;
+            int[,] kernal = GaussKern(size, 5,out weight);
+
+            unsafe
+            {
+                byte* p = (byte*)(void*)bData.Scan0;
+
+                for(int y=size/2; y<(b.Height-size/2); y++)
+                {
+                    for(int x=size/2; x<(b.Width-size/2); x++)
+                    {
+                        sum = 0;
+                        sum2 = 0;
+                        sum3 = 0;
+                        for(int i=-size/2; i<=size/2; i++)
+                        {
+                            for(int j=-size/2; j<size/2; j++)
+                            {
+                                sum += (p[0]*kernal[size/2 +i,size/2+j]);
+                                sum2 += (p[1] * kernal[size / 2 + i, size / 2 + j]);
+                                sum3 += (p[2] * kernal[size / 2 + i, size / 2 + j]);
+
+                            }
+                        }
+                        p[0] = (byte)(Math.Round(sum / (float)weight));
+                        p[1] = (byte)(Math.Round(sum2 / (float)weight));
+                        p[2] = (byte)(Math.Round(sum3 / (float)weight));
+
+                        p += 4;
+                    }
+                    p += (bData.Stride - b.Width*4);
+                }
+            }
+            b.UnlockBits(bData);
+
+            return b;
         }
 
-        public static Bitmap GrayScale(Bitmap b) //needs to change to unsafe, take out setpixel
+        private static int[,] GaussKern(int size, float sig, out int weight)
         {
-            Bitmap temp = (Bitmap)b;
-            Bitmap bmap = (Bitmap)temp.Clone();
-            Color c;
-            for (int i = 0; i < bmap.Width; i++)
-            {
-                for (int j = 0; j < bmap.Height; j++)
-                {
-                    c = bmap.GetPixel(i, j);
-                    byte gray = (byte)(.299 * c.R + .587 * c.G + .114 * c.B);
+            float[,] kernal = new float[size, size];
+            int[,] kern = new int[size, size];
+            float a = 1 / (2 * (float)Math.PI * sig * sig);
+            float b = 2 * sig * sig;
+            float min = 1000;
 
-                    bmap.SetPixel(i, j, Color.FromArgb(gray, gray, gray));
+            for(int y=-size/2; y<=(size/2); y++)
+            {
+                for(int x=-size/2; x<=(size/2); x++)
+                {
+                    kernal[size / 2 + x, size / 2 + y] = ((1 / a) * (float)Math.Exp(-(x * x + y * y) / b));
+                    if (kernal[size / 2 + x, size / 2 + y] < min)
+                        min = kernal[size / 2 + x, size / 2 + y];
                 }
             }
 
-            return b = (Bitmap)bmap.Clone();
+            int sum = 0;
+             if(min>0 && min < 1)
+            {
+                for(int y=-size/2; y<=(size/2); y++)
+                {
+                    for(int x=-size/2; x<=(size/2); x++)
+                    {
+                        kernal[size / 2 + x, size / 2 + y] = (float)Math.Round(kernal[size / 2 + x, size / 2 + y] * ((int)(1 / min)), 0);
+                        kern[size / 2 + x, size / 2 + y] = (int)kernal[size / 2 + x, size / 2 + y];
+                        sum += kern[size / 2 + x, size / 2 + y];
+                    }
+                }
+            } else
+            {
+                sum = 0;
+                for (int y = -size / 2; y <= (size / 2); y++)
+                {
+                    for (int x = -size / 2; x <= (size / 2); x++)
+                    {
+                        kernal[size / 2 + x, size / 2 + y] = (float)Math.Round(kernal[size / 2 + x, size / 2 + y], 0);
+                        kern[size / 2 + x, size / 2 + y] = (int)kernal[size / 2 + x, size / 2 + y];
+                        sum += kern[size / 2 + x, size / 2 + y];
+                    }
+                }
+            }
+            weight = sum;
+
+            
+            return kern;
+        }
+
+        public static Bitmap GrayScale(Bitmap b)
+        {
+            BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
+                                                        ImageLockMode.ReadWrite,
+                                                        PixelFormat.Format32bppArgb);
+            //blue = 0
+            //green = 1
+            //red = 2
+
+            unsafe
+            {
+                byte* p = (byte*)(void*)bData.Scan0;
+                byte r, g, bl;
+                for (int i = 0; i < b.Width; i++)
+                {
+                    for (int j = 0; j < b.Height; j++)
+                    {
+                        bl = p[0];
+                        g = p[1];
+                        r = p[2];
+
+                        p[0] = p[1] = p[2] = (byte)(.299 * r + .587 * g + .114 * bl);
+
+
+                        p += 4;
+                    }
+                    p += (bData.Stride - b.Width * 4);
+                }
+            }
+            b.UnlockBits(bData);
+
+            return b;
         }
 
         public static Bitmap Conv(Bitmap b, ConvMatrix m)

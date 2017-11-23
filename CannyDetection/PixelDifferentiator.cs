@@ -32,10 +32,6 @@ namespace CannyDetection
         double cb=0.0;
         double ca = 0.0;
 
-        int foff=1;
-        int coff=0;
-        int boff=0;
-
         double[,] xKern = Sobelx;
         double[,] yKern = Sobely;
 
