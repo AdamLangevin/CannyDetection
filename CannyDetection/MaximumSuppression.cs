@@ -244,8 +244,8 @@ namespace CannyDetection
                 EdgeMap = new int[b.Width, b.Height];
                 Visited = new int[b.Width, b.Height];
 
-                float MaxHyst = 75f;
-                float MinHyst = 60f;
+                float MaxHyst = 70f;
+                float MinHyst = 30f;
 
                 for (int x = 1; x< b.Width - 1; x++)
                 {

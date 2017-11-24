@@ -109,5 +109,15 @@ namespace CannyDetection
             m = MaximumSuppression.Suppression(m);
             this.Refresh();
         }
+
+        private void ProcessToNonMax(object sender, EventArgs e)
+        {
+            u = (Bitmap)m.Clone();
+            m = Filter.GrayScale(m);
+            m = Filter.Gaussian(m, 4);
+            m = PixelDifferentiator.Differentiate(m);
+            m = MaximumSuppression.Suppression(m);
+            this.Refresh();
+        }
     }
 }

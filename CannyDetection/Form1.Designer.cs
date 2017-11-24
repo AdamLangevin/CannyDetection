@@ -44,6 +44,7 @@
             this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drawCircleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,7 +97,8 @@
             this.preProcessingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.grayScaleToolStripMenuItem,
             this.gaussianToolStripMenuItem,
-            this.filterToolStripMenuItem});
+            this.filterToolStripMenuItem,
+            this.processToolStripMenuItem});
             this.preProcessingToolStripMenuItem.Name = "preProcessingToolStripMenuItem";
             this.preProcessingToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
             this.preProcessingToolStripMenuItem.Text = "Pre-Processing";
@@ -173,6 +175,13 @@
             this.distanceToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.distanceToolStripMenuItem.Text = "Distance";
             // 
+            // processToolStripMenuItem
+            // 
+            this.processToolStripMenuItem.Name = "processToolStripMenuItem";
+            this.processToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.processToolStripMenuItem.Text = "Process";
+            this.processToolStripMenuItem.Click += new System.EventHandler(this.ProcessToNonMax);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +217,7 @@
         private System.Windows.Forms.ToolStripMenuItem maxSuppressionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem edgeDetectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gaussianToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem processToolStripMenuItem;
     }
 }
 
