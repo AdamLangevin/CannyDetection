@@ -1,25 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
 using System.Drawing.Imaging;
 
 namespace CannyDetection
 {
     public class Filter
     {
-
-        public Filter()
-        {
-
-        }
-
-        public static Bitmap Gaussian(Bitmap b, int nWeight)//default to 4
+        /*
+         * A function to add a Gaussian blur effect to a Bitmap.
+         * Returns the Bitmap with the Gaussian blur applied
+         * @Param Bitmap b: the source image data, expected to be in 32-bit ARGB word format.
+         */
+        public static Bitmap Gaussian(Bitmap b)
         {
             int sum = 0;
             int sum2 = 0;
@@ -66,6 +58,12 @@ namespace CannyDetection
             return b;
         }
 
+        /*
+         * A function to calculate the Kernal array of the Gaussian for array manipulations
+         * returns the gaussian kernal, and the wieght value of the array
+         * @Param int size: the size lenght of the required kernal.
+         * @Param float sig: the deviation required for the specific kernal.
+         */
         private static int[,] GaussKern(int size, float sig, out int weight)
         {
             float[,] kernal = new float[size, size];
@@ -74,6 +72,7 @@ namespace CannyDetection
             float b = 2 * sig * sig;
             float min = 1000;
 
+            //calcauation of the keranl array values cell by cell
             for(int y=-size/2; y<=(size/2); y++)
             {
                 for(int x=-size/2; x<=(size/2); x++)
@@ -84,6 +83,7 @@ namespace CannyDetection
                 }
             }
 
+            //cacluation of the weight of the kernal
             int sum = 0;
              if(min>0 && min < 1)
             {
@@ -115,6 +115,11 @@ namespace CannyDetection
             return kern;
         }
 
+        /*
+         * Conversion function to a grey scaled image. The input is a Bitmap of ARGB 32-bit words.
+         * returns the Bitmap of greyscaled equivalent image
+         * @Param Bitmap b: The source image data in 32-bit ARGB word format.
+         */
         public static Bitmap GrayScale(Bitmap b)
         {
             BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
@@ -139,7 +144,7 @@ namespace CannyDetection
                         p[0] = p[1] = p[2] = (byte)(.299 * r + .587 * g + .114 * bl);
 
 
-                        p += 4;
+                        p += 4;   //alpha values are ignored for this operation, so we skip over them.
                     }
                     p += (bData.Stride - b.Width * 4);
                 }
@@ -149,6 +154,14 @@ namespace CannyDetection
             return b;
         }
 
+        /*
+         * A function to calculate the convolvement of a Bitmap and an array. This function supports 
+         * many different mathimatical operations. The convelutional matrix is to represent the
+         * mathimatical operator applied to the pixel values in the bitmap image.
+         * returns the convolved bitmap
+         * @Param Bitmap b: the source image data.
+         * @Param ConvMatrix m: the array to be convolved with the bitmap
+         */
         public static Bitmap Conv(Bitmap b, ConvMatrix m)
         {
             // Avoid divide by zero errors
@@ -176,7 +189,6 @@ namespace CannyDetection
                 int nOffset = stride - b.Width * 4;
                 int nWidth = b.Width - 2;
                 int nHeight = b.Height - 2;
-
                 int nPixel;
 
                 for (int y = 0; y < nHeight; ++y)

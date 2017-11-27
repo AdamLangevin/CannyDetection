@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using System.Drawing.Imaging;
-
+﻿
 namespace CannyDetection
 {
     public class ConvMatrix
@@ -15,10 +8,29 @@ namespace CannyDetection
         public int BottomLeft = 0, BottomMid = 0, BottomRight = 0;
         public int Factor = 1;
         public int Offset = 0;
+        private int Width = 3;
+        private int Height = 3;
+
+        /*
+         * A catch all for a 3x3 matrix used for mathimatical operations, most are 
+         * convolvements between two array/maticies.
+         * returns nothing, but is used as an object itself
+         * @Param int nVal: the initial matrix value(usually 1).
+         */
         public void SetAll(int nVal)
         {
             TopLeft = TopMid = TopRight = MidLeft = Pixel = MidRight =
                       BottomLeft = BottomMid = BottomRight = nVal;
         }
+
+        public int getWidth()
+        {
+            return Width;
+        }
+        public int getHeight()
+        {
+            return Height;
+        }
+
     }
 }

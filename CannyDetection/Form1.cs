@@ -66,7 +66,7 @@ namespace CannyDetection
         {
             SaveFileDialog save = new SaveFileDialog();
 
-            save.InitialDirectory = "c://";
+            save.InitialDirectory = "c:\\Users\\";
             save.Filter = "Bitmap Files(*.bmp)|*.bmp|Jpeg files(*.jpg)|*.jpg|Png files(*.png)|*.png|All Vaild files(*.bmp/*.png/*.jpg)|*.bmp/*.png/*.jpg";
             save.FilterIndex = 1;
             save.RestoreDirectory = true;
@@ -85,7 +85,7 @@ namespace CannyDetection
         private void GaussianItem(object sender, EventArgs e)
         {
             u = (Bitmap)m.Clone();
-            m = Filter.Gaussian(m, 4);
+            m = Filter.Gaussian(m);
             this.Refresh();
         }
 
@@ -114,7 +114,7 @@ namespace CannyDetection
         {
             u = (Bitmap)m.Clone();
             m = Filter.GrayScale(m);
-            m = Filter.Gaussian(m, 4);
+            m = Filter.Gaussian(m);
             m = PixelDifferentiator.Differentiate(m);
             m = MaximumSuppression.Suppression(m);
             this.Refresh();

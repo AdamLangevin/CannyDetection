@@ -1,21 +1,18 @@
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
 
 namespace CannyDetection
 {
   public class PixelDifferentiator
   {
-  
-
-    public PixelDifferentiator()
-    {
-    }
-
-    /*Convolutional matrix operation, using the Sobel operators. This
-    referantially calculates the gradient of the Bitmap supplied to the calss.
-    the magic happens here.
+    /*
+     * Convolutional matrix operation, using the Sobel operators. This
+     * referantially calculates the gradient of the Bitmap supplied to the calss.
+     * the magic happens here. The soble opperator is a matrix opperator, convolving
+     * it with a Bitmap yeilds the pixel data used to calculate the gradeient feild later
+     * returns the Bitmap filtered byt the Sobel operation
+     * @Param Bitmap b: The source image to be filtered
     */
     public static Bitmap Differentiate(Bitmap b)
     {
@@ -111,11 +108,13 @@ namespace CannyDetection
                             + p[3 + pixelSize + 2 * stride] * -2
                             + p[3 + 2 * stride + 2 * pixelSize];
 
+                        //Basic Pythagoran's Theroem
                         cr = Math.Sqrt(xr*xr + yr*yr);
                         cb = Math.Sqrt(xb*xb + yb*yb);
                         cg = Math.Sqrt(xg*xg + yg*yg);
                         ca = Math.Sqrt(xa * xa + ya * ya);
 
+                        //checking for values inside the bounds of the 8bit limit to a colour vlaue.
                         if (cr > 255) cr = 255;
                         else if(cr < 0) cr = 0;
                         if (cb > 255) cb = 255;
@@ -125,6 +124,7 @@ namespace CannyDetection
                         if (ca > 255) ca = 255;
                         else if (ca < 0) ca = 0;
 
+                        //set each pixel value to the new filtered value
                         p[0] = (byte)cr;
                         p[1] = (byte)cb;
                         p[2] = (byte)cg;
@@ -137,59 +137,12 @@ namespace CannyDetection
                     }
                     p += nOffset;
             }
-                
-
-        }
-        
-
-        //for(int offY=foff; offY < b.Height-foff; offY++)
-        //{
-        //    for(int offX=foff; offX < b.Width-foff; offX++)
-        //    {
-        //    xr= xg= xb= yr= yg= yb= 0;
-        //    cr= cg= cb =0.0;
-        //    boff= offY*bData.Stride + offX*4;
-
-        //    for(int y=-foff; y<=foff; y++)                //loop for neighbours
-        //    {
-        //        for(int x=-foff; x<=foff; x++)
-        //        {
-
-        //            coff = boff + x*4 + y*bData.Stride;
-        //            xb += (double)(u[coff]) * xKern[y+foff, x+foff];
-        //            xg += (double)(u[coff+1]) * xKern[y+foff, x+foff];
-        //            xr += (double)(u[coff+2]) * xKern[y+foff, x+foff];
-        //            yb += (double)(u[coff]) * yKern[y+foff, x+foff];
-        //            yg += (double)(u[coff+1]) * yKern[y+foff, x+foff];
-        //            yr += (double)(u[coff+2]) * yKern[y+foff, x+foff];
-        //        }
-        //    }
-
-        //    cb = Math.Sqrt((xb*xb) + (yb*yb));
-        //    cg = Math.Sqrt((xg*xg) + (yg*yg));
-        //    cr = Math.Sqrt((xr*xr) + (yr*yr));
-
-
-        //    if (cb > 255)cb = 255;
-        //    else if (cb<0)cb = 0;
-        //    if(cg>255)  cg=255;
-        //    else if(cg<0)cg=0;
-        //    if(cr>255)  cr=255;
-        //    else if(cr<0)cr=0;
-
-        //    result[boff] = (byte)(cb);
-        //    result[boff +1] = (byte)(cg);
-        //    result[boff +2] = (byte)(cr);
-        //    result[boff +3] = 255;
-        //    }
-        //}
-        b.UnlockBits(bData);
-        
-
+        } //end of unsafe code               
+        b.UnlockBits(bData);       
         res.UnlockBits(resD);
         return res;
 
-        }
+    }
 
     //Sobel matrix operator in the x plane
     private static double[,] Sobelx
