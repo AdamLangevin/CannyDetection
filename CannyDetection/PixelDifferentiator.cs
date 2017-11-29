@@ -22,12 +22,12 @@ namespace CannyDetection
         double yr=0.0;
         double yg=0.0;
         double yb=0.0;
-        double xa = 0.0;
-        double ya = 0.0;
+        double xa=0.0;
+        double ya=0.0;
         double cr=0.0;
         double cg=0.0;
         double cb=0.0;
-        double ca = 0.0;
+        double ca=0.0;
 
         double[,] xKern = Sobelx;
         double[,] yKern = Sobely;
@@ -144,7 +144,9 @@ namespace CannyDetection
 
     }
 
-    //Sobel matrix operator in the x plane
+    /*
+     * The sobel operator used for the x direction is a double array.
+     */
     private static double[,] Sobelx
     {
         get
@@ -156,8 +158,10 @@ namespace CannyDetection
             };
         }
     }
-
-    //Sobel matrix operator in the y plane
+    
+    /*
+     * The sobel matrix operator as an array of doubles.
+     */
     private static double[,] Sobely
     {
         get

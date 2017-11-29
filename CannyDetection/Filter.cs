@@ -168,24 +168,19 @@ namespace CannyDetection
             if (0 == m.Factor)
                 return b; Bitmap
 
-            // GDI+ still lies to us - the return format is BGR, NOT RGB. 
-            bSrc = (Bitmap)b.Clone();
-            BitmapData bmData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
+            res = (Bitmap)b.Clone();
+            BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
                                                         ImageLockMode.ReadWrite,
                                                         PixelFormat.Format32bppArgb);
-            BitmapData bmSrc = bSrc.LockBits(new Rectangle(0, 0, bSrc.Width, bSrc.Height),
+            BitmapData srcData = res.LockBits(new Rectangle(0, 0, res.Width, res.Height),
                                                         ImageLockMode.ReadWrite,
                                                         PixelFormat.Format32bppArgb);
-            int stride = bmData.Stride;
-            int stride2 = stride * 2;
-
-            System.IntPtr Scan0 = bmData.Scan0;
-            System.IntPtr SrcScan0 = bmSrc.Scan0;
+            int stride = bData.Stride;
 
             unsafe
             {
-                byte* p = (byte*)(void*)Scan0;
-                byte* pSrc = (byte*)(void*)SrcScan0;
+                byte* p = (byte*)(void*)bData.Scan0;
+                byte* pSrc = (byte*)(void*)srcData.Scan0;
                 int nOffset = stride - b.Width * 4;
                 int nWidth = b.Width - 2;
                 int nHeight = b.Height - 2;
@@ -196,15 +191,15 @@ namespace CannyDetection
                     for (int x = 0; x < nWidth; ++x)
                     {
                         nPixel = ((((pSrc[3] * m.TopLeft) +
-                                       (pSrc[7] * m.TopMid) +
-                                       (pSrc[11] * m.TopRight) +
-                                       (pSrc[3 + stride] * m.MidLeft) +
-                                       (pSrc[7 + stride] * m.Pixel) +
-                                       (pSrc[11 + stride] * m.MidRight) +
-                                       (pSrc[3 + stride2] * m.BottomLeft) +
-                                       (pSrc[7 + stride2] * m.BottomMid) +
-                                       (pSrc[11 + stride2] * m.BottomRight))
-                                        / m.Factor) + m.Offset);
+                                    (pSrc[7] * m.TopMid) +
+                                    (pSrc[11] * m.TopRight) +
+                                    (pSrc[3 + stride] * m.MidLeft) +
+                                    (pSrc[7 + stride] * m.Pixel) +
+                                    (pSrc[11 + stride] * m.MidRight) +
+                                    (pSrc[3 +2*  stride] * m.BottomLeft) +
+                                    (pSrc[7 + 2 * stride] * m.BottomMid) +
+                                    (pSrc[11 + 2 * stride] * m.BottomRight))
+                                    / m.Factor) + m.Offset);
 
                         if (nPixel < 0) nPixel = 0;
                         if (nPixel > 255) nPixel = 255;
@@ -216,9 +211,9 @@ namespace CannyDetection
                                     (pSrc[2 + stride] * m.MidLeft) +
                                     (pSrc[6 + stride] * m.Pixel) +
                                     (pSrc[10 + stride] * m.MidRight) +
-                                    (pSrc[2 + stride2] * m.BottomLeft) +
-                                    (pSrc[6 + stride2] * m.BottomMid) +
-                                    (pSrc[10 + stride2] * m.BottomRight))
+                                    (pSrc[2 + 2 * stride] * m.BottomLeft) +
+                                    (pSrc[6 + 2 * stride] * m.BottomMid) +
+                                    (pSrc[10 + 2 * stride] * m.BottomRight))
                                     / m.Factor) + m.Offset);
 
                         if (nPixel < 0) nPixel = 0;
@@ -231,9 +226,9 @@ namespace CannyDetection
                                     (pSrc[1 + stride] * m.MidLeft) +
                                     (pSrc[5 + stride] * m.Pixel) +
                                     (pSrc[9 + stride] * m.MidRight) +
-                                    (pSrc[1 + stride2] * m.BottomLeft) +
-                                    (pSrc[5 + stride2] * m.BottomMid) +
-                                    (pSrc[9 + stride2] * m.BottomRight))
+                                    (pSrc[1 + 2 * stride] * m.BottomLeft) +
+                                    (pSrc[5 + 2 * stride] * m.BottomMid) +
+                                    (pSrc[9 + 2 * stride] * m.BottomRight))
                                     / m.Factor) + m.Offset);
 
                         if (nPixel < 0) nPixel = 0;
@@ -241,15 +236,15 @@ namespace CannyDetection
                         p[5 + stride] = (byte)nPixel;
 
                         nPixel = ((((pSrc[0] * m.TopLeft) +
-                                       (pSrc[4] * m.TopMid) +
-                                       (pSrc[8] * m.TopRight) +
-                                       (pSrc[0 + stride] * m.MidLeft) +
-                                       (pSrc[4 + stride] * m.Pixel) +
-                                       (pSrc[8 + stride] * m.MidRight) +
-                                       (pSrc[0 + stride2] * m.BottomLeft) +
-                                       (pSrc[4 + stride2] * m.BottomMid) +
-                                       (pSrc[8 + stride2] * m.BottomRight))
-                                        / m.Factor) + m.Offset);
+                                    (pSrc[4] * m.TopMid) +
+                                    (pSrc[8] * m.TopRight) +
+                                    (pSrc[0 + stride] * m.MidLeft) +
+                                    (pSrc[4 + stride] * m.Pixel) +
+                                    (pSrc[8 + stride] * m.MidRight) +
+                                    (pSrc[0 + 2 * stride] * m.BottomLeft) +
+                                    (pSrc[4 + 2 * stride] * m.BottomMid) +
+                                    (pSrc[8 + 2 * stride] * m.BottomRight))
+                                    / m.Factor) + m.Offset);
 
                         if (nPixel < 0) nPixel = 0;
                         if (nPixel > 255) nPixel = 255;
@@ -264,8 +259,8 @@ namespace CannyDetection
                 }
             }
 
-            b.UnlockBits(bmData);
-            bSrc.UnlockBits(bmSrc);
+            b.UnlockBits(bData);
+            res.UnlockBits(srcData);
             return b;
         }
 

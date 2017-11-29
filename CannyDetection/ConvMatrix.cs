@@ -23,10 +23,17 @@ namespace CannyDetection
                       BottomLeft = BottomMid = BottomRight = nVal;
         }
 
+        /*
+         * Standard get method to retrieve the width of a convolutional matrix.
+         */
         public int getWidth()
         {
             return Width;
         }
+
+        /*
+         * Standard get method for the height of a convolutional matrix.
+         */
         public int getHeight()
         {
             return Height;

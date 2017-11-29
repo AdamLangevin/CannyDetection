@@ -229,7 +229,7 @@ namespace CannyDetection
                         p[0] = (byte)((int)src[x, y]);
                         p[1] = (byte)((int)src[x, y]);
                         p[2] = (byte)((int)src[x, y]);
-                        p[3] = (byte)((int)255);
+                        p[3] = (byte)((int)255);            //alpha value s.t. background colour is not visable.
 
                         p += 4;
                     }
@@ -313,7 +313,7 @@ namespace CannyDetection
 
         /*
          *A function to check the threshold values of nighbours to the pixel elements
-         * Returns no values
+         * Returns no explicite values, implicily changes the EdgeMap, Visited, and Edges arrays.
          * @Param int[,] Edges: is an array which represents 8-bit colour values of a grey image
          * @Param int w: Is the width of the array, and source image.
          * @Param int h: The value of the hight of the source image array.
@@ -339,7 +339,7 @@ namespace CannyDetection
 
         /*
          * A recursive function used to travers all neighbours to the testing pixel, if the pixel has a value of 2,
-         * the pixel has a chance to be an edge member
+         * the pixel has a chance to be an edge member.
          * Returns implicially the vlaues to the Visited array, and EdgeMap array
          * @Param int x: the current test pixel x-location.
          * @Param int y: the current test pixel y-location.
@@ -352,6 +352,7 @@ namespace CannyDetection
                 return;
             }
 
+            //middle right neighbour
             if(Edges[x + 1,y] == 2)
             {
                 EdgeMap[x + 1, y] = 1;
@@ -359,6 +360,8 @@ namespace CannyDetection
                 travers(x + 1, y);
                 return ;
             }
+
+            //top rigth neighbour
             if (Edges[x + 1, y - 1] == 2)
             {
                 EdgeMap[1, y - 1] = 1;
@@ -366,6 +369,8 @@ namespace CannyDetection
                 travers(x + 1, y - 1);
                 return;
             }
+
+            //top middle neighbour
             if (Edges[x, y - 1] == 2)
             {
                 EdgeMap[x, y - 1] = 1;
@@ -373,6 +378,8 @@ namespace CannyDetection
                 travers(x, y - 1);
                 return;
             }
+
+            //top left neighbour
             if (Edges[x - 1, y - 1] == 2)
             {
                 EdgeMap[x - 1, y - 1] = 1;
@@ -380,6 +387,8 @@ namespace CannyDetection
                 travers(x - 1, y - 1);
                 return;
             }
+
+            //middle left neighbour
             if (Edges[x - 1, y] == 2)
             {
                 EdgeMap[x - 1, y] = 1;
@@ -387,6 +396,8 @@ namespace CannyDetection
                 travers(x - 1, y);
                 return;
             }
+
+            //bottom left neighbour
             if (Edges[x - 1, y + 1] == 2)
             {
                 EdgeMap[x - 1, y + 1] = 1;
@@ -394,6 +405,8 @@ namespace CannyDetection
                 travers(x - 1, y + 1);
                 return;
             }
+
+            //bottom middle neighbour
             if (Edges[x, y + 1] == 2)
             {
                 EdgeMap[x, y + 1] = 1;
@@ -401,6 +414,8 @@ namespace CannyDetection
                 travers(x, y + 1);
                 return;
             }
+
+            //bottom right neighbour
             if (Edges[x + 1, y + 1] == 2)
             {
                 EdgeMap[x + 1, y + 1] = 1;
