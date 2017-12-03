@@ -73,21 +73,21 @@
             // LoadItem
             // 
             this.LoadItem.Name = "LoadItem";
-            this.LoadItem.Size = new System.Drawing.Size(152, 22);
+            this.LoadItem.Size = new System.Drawing.Size(100, 22);
             this.LoadItem.Text = "Load";
             this.LoadItem.Click += new System.EventHandler(this.LoadItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveItem);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitItem);
             // 
@@ -105,14 +105,14 @@
             // grayScaleToolStripMenuItem
             // 
             this.grayScaleToolStripMenuItem.Name = "grayScaleToolStripMenuItem";
-            this.grayScaleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.grayScaleToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.grayScaleToolStripMenuItem.Text = "GrayScale";
             this.grayScaleToolStripMenuItem.Click += new System.EventHandler(this.GrayScaleItem);
             // 
             // gaussianToolStripMenuItem
             // 
             this.gaussianToolStripMenuItem.Name = "gaussianToolStripMenuItem";
-            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.gaussianToolStripMenuItem.Text = "Gaussian";
             this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.GaussianItem);
             // 
@@ -123,7 +123,7 @@
             this.maxSuppressionToolStripMenuItem,
             this.edgeDetectToolStripMenuItem});
             this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.filterToolStripMenuItem.Text = "Canny";
             // 
             // sobleToolStripMenuItem
@@ -149,7 +149,7 @@
             // processToolStripMenuItem
             // 
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
-            this.processToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.processToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.processToolStripMenuItem.Text = "Process";
             this.processToolStripMenuItem.Click += new System.EventHandler(this.ProcessToNonMax);
             // 
@@ -166,19 +166,19 @@
             // centerToolStripMenuItem
             // 
             this.centerToolStripMenuItem.Name = "centerToolStripMenuItem";
-            this.centerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.centerToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.centerToolStripMenuItem.Text = "Center";
             // 
             // drawCircleToolStripMenuItem
             // 
             this.drawCircleToolStripMenuItem.Name = "drawCircleToolStripMenuItem";
-            this.drawCircleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.drawCircleToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.drawCircleToolStripMenuItem.Text = "DrawCircle";
             // 
             // distanceToolStripMenuItem
             // 
             this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
-            this.distanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.distanceToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.distanceToolStripMenuItem.Text = "Distance";
             // 
             // Form1
@@ -190,6 +190,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.onClose);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

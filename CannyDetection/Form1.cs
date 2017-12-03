@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -20,9 +14,13 @@ namespace CannyDetection
         private Stopwatch watch;
         private double timeElapsed;
         private static TraceSource _source = new TraceSource("TestLog");
+        private Logger l;
+        private string w;
 
         public Form1()
         {
+            w = DateTime.Now.ToLongDateString();
+            l = new Logger(w);
             timeElapsed = 0.0;
             watch = new Stopwatch();
             InitializeComponent();
@@ -65,6 +63,7 @@ namespace CannyDetection
 
         private void SaveItem(object sender, EventArgs e)
         {
+            l.log(">------------end-------------<");
             SaveFileDialog save = new SaveFileDialog();
 
             save.InitialDirectory = "c:\\Users\\";
@@ -80,6 +79,7 @@ namespace CannyDetection
 
         private void ExitItem(object sender, EventArgs e)
         {
+            l.log(">-----------end--------------<");
             this.Close();
         }
 
@@ -91,12 +91,11 @@ namespace CannyDetection
             m = Filter.Gaussian(m);
 
             watch.Stop();
-            Console.WriteLine("Gaussian blur filtering took: " + watch.ElapsedMilliseconds / 1000);
+
             timeElapsed += watch.ElapsedMilliseconds / 1000;
-            _source.TraceEvent(TraceEventType.Information, 0, "Time: {0}", watch.ElapsedMilliseconds / 1000);
+            _source.TraceEvent(TraceEventType.Information, 0, "Gaussian Time: {0}", watch.ElapsedMilliseconds / 1000);
             _source.TraceEvent(TraceEventType.Information, 0, "Total Time: {0}", timeElapsed);
-
-
+            l.log("Gaussian Time: " + watch.ElapsedMilliseconds / 1000);
             this.Refresh();
         }
 
@@ -107,11 +106,11 @@ namespace CannyDetection
             m = Filter.GrayScale(m);
 
             watch.Stop();
-            Console.WriteLine("Grey Scale took: " + watch.ElapsedMilliseconds/1000);
-            timeElapsed += watch.ElapsedMilliseconds / 1000;
-            _source.TraceEvent(TraceEventType.Information, 0, "Time: {0}", watch.ElapsedMilliseconds / 1000);
-            _source.TraceEvent(TraceEventType.Information, 0, "Total Time: {0}", timeElapsed);
 
+            timeElapsed += watch.ElapsedMilliseconds / 1000;
+            _source.TraceEvent(TraceEventType.Information, 0, "Grey Scale Time: {0}", watch.ElapsedMilliseconds / 1000);
+            _source.TraceEvent(TraceEventType.Information, 0, "Total Time: {0}", timeElapsed);
+            l.log("Grey Scale  Time: " + watch.ElapsedMilliseconds / 1000);
 
             this.Refresh();
             
@@ -124,11 +123,11 @@ namespace CannyDetection
             u = (Bitmap)m.Clone();
             m = PixelDifferentiator.Differentiate(m);
             watch.Stop();
-            Console.WriteLine("Sobel filtering took: " + watch.ElapsedMilliseconds / 1000);
-            timeElapsed += watch.ElapsedMilliseconds / 1000;
-            _source.TraceEvent(TraceEventType.Information, 0, "Time: {0}", watch.ElapsedMilliseconds / 1000);
-            _source.TraceEvent(TraceEventType.Information, 0, "Total Time: {0}", timeElapsed);
 
+            timeElapsed += watch.ElapsedMilliseconds / 1000;
+            _source.TraceEvent(TraceEventType.Information, 0, "Sobel Filtering Time: {0}", watch.ElapsedMilliseconds / 1000);
+            _source.TraceEvent(TraceEventType.Information, 0, "Total Time: {0}", timeElapsed);
+            l.log("Soble Filtering Time: " + watch.ElapsedMilliseconds / 1000);
 
             this.Refresh();
         }
@@ -141,11 +140,11 @@ namespace CannyDetection
             m = MaximumSuppression.Suppression(m);
 
             watch.Stop();
-            Console.WriteLine("Maximum Suppression took: " + watch.ElapsedMilliseconds / 1000);
+
             timeElapsed += watch.ElapsedMilliseconds / 1000;
-            Console.WriteLine("The total filtering took: " + timeElapsed);
-            _source.TraceEvent(TraceEventType.Information, 0, "Time: {0}", watch.ElapsedMilliseconds / 1000);
+            _source.TraceEvent(TraceEventType.Information, 0, "Maximum Suppression  Time: {0}", watch.ElapsedMilliseconds / 1000);
             _source.TraceEvent(TraceEventType.Information, 0, "Total Time: {0}", timeElapsed);
+            l.log("Maximum Suppression Time: " + watch.ElapsedMilliseconds / 1000 + " Total Time: " + watch.ElapsedMilliseconds / 1000);
             timeElapsed = 0.0;
 
             this.Refresh();
@@ -162,12 +161,19 @@ namespace CannyDetection
             m = MaximumSuppression.Suppression(m);
 
             watch.Stop();
-            Console.WriteLine("The total filering time took: " + watch.ElapsedMilliseconds / 1000);
+
             _source.TraceEvent(TraceEventType.Information, 0, "Time: {0}", watch.ElapsedMilliseconds / 1000);
+            l.log("Total Process Time: " + watch.ElapsedMilliseconds / 1000);
 
             timeElapsed = 0.0;
             
             this.Refresh();
+        }
+
+        private void onClose(object sender, FormClosingEventArgs e)
+        {
+            l.log(">------------end------------<");
+
         }
     }
 }
