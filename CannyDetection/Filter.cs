@@ -8,7 +8,7 @@ namespace CannyDetection
     {
         /*
          * A function to add a Gaussian blur effect to a Bitmap.
-         * Returns the Bitmap with the Gaussian blur applied
+         * @Returns the Bitmap with the Gaussian blur applied
          * @Param Bitmap b: the source image data, expected to be in 32-bit ARGB word format.
          */
         public static Bitmap Gaussian(Bitmap b)
@@ -21,7 +21,7 @@ namespace CannyDetection
                                             ImageLockMode.ReadOnly,
                                             PixelFormat.Format32bppArgb);
             int weight;
-            int[,] kernal = GaussKern(size, 5,out weight);
+            int[,] kernal = GaussKern(size, 1.4f,out weight);
 
             unsafe
             {
@@ -60,7 +60,7 @@ namespace CannyDetection
 
         /*
          * A function to calculate the Kernal array of the Gaussian for array manipulations
-         * returns the gaussian kernal, and the wieght value of the array
+         * @returns the gaussian kernal, and the wieght value of the array
          * @Param int size: the size lenght of the required kernal.
          * @Param float sig: the deviation required for the specific kernal.
          */
@@ -117,7 +117,7 @@ namespace CannyDetection
 
         /*
          * Conversion function to a grey scaled image. The input is a Bitmap of ARGB 32-bit words.
-         * returns the Bitmap of greyscaled equivalent image
+         * @returns the Bitmap of greyscaled equivalent image
          * @Param Bitmap b: The source image data in 32-bit ARGB word format.
          */
         public static Bitmap GrayScale(Bitmap b)
@@ -143,7 +143,6 @@ namespace CannyDetection
 
                         p[0] = p[1] = p[2] = (byte)(.299 * r + .587 * g + .114 * bl);
 
-
                         p += 4;   //alpha values are ignored for this operation, so we skip over them.
                     }
                     p += (bData.Stride - b.Width * 4);
@@ -158,7 +157,7 @@ namespace CannyDetection
          * A function to calculate the convolvement of a Bitmap and an array. This function supports 
          * many different mathimatical operations. The convelutional matrix is to represent the
          * mathimatical operator applied to the pixel values in the bitmap image.
-         * returns the convolved bitmap
+         * @returns the convolved bitmap
          * @Param Bitmap b: the source image data.
          * @Param ConvMatrix m: the array to be convolved with the bitmap
          */

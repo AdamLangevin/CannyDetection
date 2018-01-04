@@ -14,7 +14,7 @@ namespace CannyDetection
         /*
          * A catch all for a 3x3 matrix used for mathimatical operations, most are 
          * convolvements between two array/maticies.
-         * returns nothing, but is used as an object itself
+         * @returns nothing, but is used as an object itself
          * @Param int nVal: the initial matrix value(usually 1).
          */
         public void SetAll(int nVal)

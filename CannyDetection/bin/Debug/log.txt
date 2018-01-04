@@ -59,3 +59,159 @@ Log Entry:  :Saturday, December 02, 2017
 Log Entry:  :Total Process Time: 13
 
 Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :Grey Scale  Time: 1
+
+Log Entry:  :Gaussian Time: 6
+
+Log Entry:  :Soble Filtering Time: 8
+
+Log Entry:  :Maximum Suppression Time: 17 Total Time: 17
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Grey Scale  Time: 1
+
+Log Entry:  :Gaussian Time: 6
+
+Log Entry:  :Soble Filtering Time: 7
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :>------------end-------------<
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 1
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 124
+
+Log Entry:  :Total Process Time: 130
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :Total Process Time: 1
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Grey Scale  Time: 1
+
+Log Entry:  :Gaussian Time: 6
+
+Log Entry:  :Thursday, December 07, 2017
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 1
+
+Log Entry:  :Maximum Suppression Time: 1 Total Time: 1
+
+Log Entry:  :Grey Scale  Time: 1
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Soble Filtering Time: 1
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :Grey Scale  Time: 2
+
+Log Entry:  :Gaussian Time: 2
+
+Log Entry:  :Soble Filtering Time: 2
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Friday, December 08, 2017
+
+Log Entry:  :>------------end-------------<
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Friday, December 08, 2017
+
+Log Entry:  :Total Process Time: 20
+
+Log Entry:  :>------------end------------<

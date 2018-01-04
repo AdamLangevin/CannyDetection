@@ -11,7 +11,7 @@ namespace CannyDetection
      * referantially calculates the gradient of the Bitmap supplied to the calss.
      * the magic happens here. The soble opperator is a matrix opperator, convolving
      * it with a Bitmap yeilds the pixel data used to calculate the gradeient feild later
-     * returns the Bitmap filtered byt the Sobel operation
+     * @returns the Bitmap filtered byt the Sobel operation
      * @Param Bitmap b: The source image to be filtered
     */
     public static Bitmap Differentiate(Bitmap b)
@@ -28,9 +28,6 @@ namespace CannyDetection
         double cg=0.0;
         double cb=0.0;
         double ca=0.0;
-
-        double[,] xKern = Sobelx;
-        double[,] yKern = Sobely;
 
         BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
                                         ImageLockMode.ReadOnly,
@@ -95,7 +92,7 @@ namespace CannyDetection
                             + p[2 + pixelSize + 2 * stride] * -2
                             + p[2 + 2 * stride + 2 * pixelSize] * -1;
 
-                        xa = p[3] * -1
+                        /*xa = p[3] * -1
                             + p[3 + 2 * pixelSize]
                             + p[3 + stride] * -2
                             + p[3 + stride + 2 * pixelSize] * 2
@@ -106,13 +103,13 @@ namespace CannyDetection
                             + p[3 + 2 * pixelSize]
                             + p[3 + 2 * stride] * -1
                             + p[3 + pixelSize + 2 * stride] * -2
-                            + p[3 + 2 * stride + 2 * pixelSize];
-
+                            + p[3 + 2 * stride + 2 * pixelSize] * -1;
+*/
                         //Basic Pythagoran's Theroem
                         cr = Math.Sqrt(xr*xr + yr*yr);
                         cb = Math.Sqrt(xb*xb + yb*yb);
                         cg = Math.Sqrt(xg*xg + yg*yg);
-                        ca = Math.Sqrt(xa * xa + ya * ya);
+                        //ca = Math.Sqrt(xa * xa + ya * ya);
 
                         //checking for values inside the bounds of the 8bit limit to a colour vlaue.
                         if (cr > 255) cr = 255;
@@ -121,14 +118,14 @@ namespace CannyDetection
                         else if (cb < 0) cb = 0;
                         if (cg > 255) cg = 255;
                         else if (cg < 0) cg = 0;
-                        if (ca > 255) ca = 255;
-                        else if (ca < 0) ca = 0;
+                        //if (ca > 255) ca = 255;
+                        //else if (ca < 0) ca = 0;
 
                         //set each pixel value to the new filtered value
                         p[0] = (byte)cr;
                         p[1] = (byte)cb;
                         p[2] = (byte)cg;
-                        p[3] = (byte)ca;
+                        //p[3] = (byte)ca;
 
                         xr = yr = xb = yb = xg = yg = xa = ya = ca = cr = cg = cb = 0;
                         //Console.WriteLine("x: " + x + " y: " + y);
@@ -141,38 +138,6 @@ namespace CannyDetection
         b.UnlockBits(bData);       
         res.UnlockBits(resD);
         return res;
-
     }
-
-    /*
-     * The sobel operator used for the x direction is a double array.
-     */
-    private static double[,] Sobelx
-    {
-        get
-        {
-            return new double[,] {
-                { -1, 0, 1},
-                { -2, 0, 2},
-                { -1, 0, 1}
-            };
-        }
-    }
-    
-    /*
-     * The sobel matrix operator as an array of doubles.
-     */
-    private static double[,] Sobely
-    {
-        get
-        {
-            return new double[,] {
-                { 1, 2, 1},
-                { 0, 0, 0},
-                { -1, -2, -1}
-            };
-        }
-    }
-
   }
 }

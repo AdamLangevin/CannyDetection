@@ -16,7 +16,7 @@ namespace CannyDetection
         * This class provides the ssecond order differentiation that is needed to get the gradient 
         * used to determine the directions the change is the values are moving in. This helps to
         * determine the pixels that are needed to be suppressed.
-        * returns the Bitmap of the filtered image shown in black and white 32-bit ARGB word format.
+        * @returns the Bitmap of the filtered image shown in black and white 32-bit ARGB word format.
         * @Param Bitmap b: the source Bitmap
         */
         public static Bitmap Suppression(Bitmap b)
@@ -167,8 +167,8 @@ namespace CannyDetection
             EdgeMap = new int[b.Width, b.Height];
             Visited = new int[b.Width, b.Height];
 
-            float MaxHyst = 60f;            //upper threshold, values above this are true edges
-            float MinHyst = 40f;            //lower threshold, values below this are not edges
+            float MaxHyst = 80f;            //upper threshold, values above this are true edges
+            float MinHyst = 60f;            //lower threshold, values below this are not edges
             
             //check for pixels above the Max, and values that are inbetween
             //The values inbetween might be edges, but require more processing
@@ -207,7 +207,7 @@ namespace CannyDetection
 
         /*
          * A function that converts a float array to a Bitmap.
-         * returns the Bitmap after processing.
+         * @returns the Bitmap after processing.
          * @Param float[,] src: the source image to be traslated to a Bitmap.
          * @Param int width: the target image width.
          * @Param int height: the target image height.
@@ -244,7 +244,7 @@ namespace CannyDetection
         //A useful funciton to convert integer arrays to bitmaps
         /*
          * A function to convert an integer array to a Bitmap image. The output file type is unknown at this stage.
-         * returns the new Bitmap in 32-bit ARGB word format.
+         * @returns the new Bitmap in 32-bit ARGB word format.
          * @Param int[,] src: the source integer array to be translated
          * @Param int w: the target width of the array of values.
          * @Param int h: the target height of the arry of values.
@@ -282,7 +282,7 @@ namespace CannyDetection
 
         /*
          * This is a function to convert a Bitmap containing a 32-bit ARGB word to a float array.
-         * Returns a float array
+         * @Returns a float array
          * @Param Bitmap b: the source image, can be  a  jpeg, BMP, or PNG image.
          */
         public static float[,] convertToArray(Bitmap b)
@@ -313,7 +313,7 @@ namespace CannyDetection
 
         /*
          *A function to check the threshold values of nighbours to the pixel elements
-         * Returns no explicite values, implicily changes the EdgeMap, Visited, and Edges arrays.
+         * @Returns no explicite values, implicily changes the EdgeMap, Visited, and Edges arrays.
          * @Param int[,] Edges: is an array which represents 8-bit colour values of a grey image
          * @Param int w: Is the width of the array, and source image.
          * @Param int h: The value of the hight of the source image array.
@@ -340,7 +340,7 @@ namespace CannyDetection
         /*
          * A recursive function used to travers all neighbours to the testing pixel, if the pixel has a value of 2,
          * the pixel has a chance to be an edge member.
-         * Returns implicially the vlaues to the Visited array, and EdgeMap array
+         * @Returns implicially the vlaues to the Visited array, and EdgeMap array
          * @Param int x: the current test pixel x-location.
          * @Param int y: the current test pixel y-location.
          */
