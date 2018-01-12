@@ -2,6 +2,11 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
+using AForge.Imaging;
+using System.Drawing.Imaging;
+using AForge.Math.Geometry;
+using System.Collections.Generic;
+using AForge;
 
 namespace CannyDetection
 {
@@ -16,6 +21,7 @@ namespace CannyDetection
         private static TraceSource _source = new TraceSource("TestLog");
         private Logger l;
         private string w;
+        private int[,] greyImage;
 
         public Form1()
         {
@@ -88,7 +94,7 @@ namespace CannyDetection
             watch.Start();
 
             u = (Bitmap)m.Clone();
-            m = Filter.Gaussian(m);
+            m = MaximumSuppression.convertToBitmap(Filter.ArrayGaussian(greyImage), greyImage.GetLength(0), greyImage.GetLength(1));
 
             watch.Stop();
 
@@ -103,8 +109,8 @@ namespace CannyDetection
         {
             watch.Start();
             u = (Bitmap)m.Clone();
-            m = Filter.GrayScale(m);
-
+            m = Filter.GrayScale(m,out greyImage);
+            m = MaximumSuppression.convertToBitmap(greyImage, greyImage.GetLength(0), greyImage.GetLength(1));
             watch.Stop();
 
             timeElapsed += watch.ElapsedMilliseconds / 1000;
@@ -155,8 +161,9 @@ namespace CannyDetection
             watch.Start();
 
             u = (Bitmap)m.Clone();
-            m = Filter.GrayScale(m);
-            m = Filter.Gaussian(m);
+            m = Filter.GrayScale(m, out greyImage);
+            m = MaximumSuppression.convertToBitmap(greyImage, greyImage.GetLength(0), greyImage.GetLength(1));
+            m = MaximumSuppression.convertToBitmap(Filter.ArrayGaussian(greyImage), greyImage.GetLength(0), greyImage.GetLength(1));
             m = PixelDifferentiator.Differentiate(m);
             m = MaximumSuppression.Suppression(m);
 
@@ -174,6 +181,15 @@ namespace CannyDetection
         {
             l.log(">------------end------------<");
 
+        }
+
+        private void DetectorClick(object sender, EventArgs e)
+        {
+            
+            u = (Bitmap)m.Clone();
+            m = CircleDetector.Cirlces(m);
+
+            this.Refresh();
         }
     }
 }

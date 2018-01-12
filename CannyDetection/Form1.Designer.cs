@@ -105,14 +105,14 @@
             // grayScaleToolStripMenuItem
             // 
             this.grayScaleToolStripMenuItem.Name = "grayScaleToolStripMenuItem";
-            this.grayScaleToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.grayScaleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.grayScaleToolStripMenuItem.Text = "GrayScale";
             this.grayScaleToolStripMenuItem.Click += new System.EventHandler(this.GrayScaleItem);
             // 
             // gaussianToolStripMenuItem
             // 
             this.gaussianToolStripMenuItem.Name = "gaussianToolStripMenuItem";
-            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gaussianToolStripMenuItem.Text = "Gaussian";
             this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.GaussianItem);
             // 
@@ -123,7 +123,7 @@
             this.maxSuppressionToolStripMenuItem,
             this.edgeDetectToolStripMenuItem});
             this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.filterToolStripMenuItem.Text = "Canny";
             // 
             // sobleToolStripMenuItem
@@ -145,11 +145,12 @@
             this.edgeDetectToolStripMenuItem.Name = "edgeDetectToolStripMenuItem";
             this.edgeDetectToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.edgeDetectToolStripMenuItem.Text = "EdgeDetect";
+            this.edgeDetectToolStripMenuItem.Click += new System.EventHandler(this.DetectorClick);
             // 
             // processToolStripMenuItem
             // 
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
-            this.processToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.processToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.processToolStripMenuItem.Text = "Process";
             this.processToolStripMenuItem.Click += new System.EventHandler(this.ProcessToNonMax);
             // 

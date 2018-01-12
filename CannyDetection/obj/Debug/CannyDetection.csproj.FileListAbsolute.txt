@@ -28,3 +28,13 @@ C:\Users\misfi\Desktop\Dev\ObjectDetection\CannyDetection\CannyDetection\obj\Deb
 C:\Users\misfi\Desktop\Dev\ObjectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.csproj.CoreCompileInputs.cache
 C:\Users\misfi\Desktop\Dev\ObjectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.exe
 C:\Users\misfi\Desktop\Dev\ObjectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.pdb
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\CannyDetection.exe.manifest
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\CannyDetection.application
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.exe.manifest
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.application
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.dll
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.Imaging.dll
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.Math.dll
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.xml
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.Imaging.xml
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.Math.xml

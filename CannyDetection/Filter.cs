@@ -6,6 +6,8 @@ namespace CannyDetection
 {
     public class Filter
     {
+        private static int SIZE = 5;
+        private static float sigma = 1.0f;
         /*
          * A function to add a Gaussian blur effect to a Bitmap.
          * @Returns the Bitmap with the Gaussian blur applied
@@ -56,6 +58,43 @@ namespace CannyDetection
             b.UnlockBits(bData);
 
             return b;
+        }
+
+        /*
+         * An integer array version of the Gaussian blur filter. 
+         * varraibles affecting the outcome are the size of teh kernal, 
+         * and the sigma value, controlling the spread of values.
+         * @Returns: an integer array of pixel values calculated from a Bitmap
+         * @Params: int[,] dat: an array of pixel data points
+         */
+        public static int[,] ArrayGaussian(int[,] dat)
+        {
+            float sum = 0;
+            int weight = 0;
+            int w = dat.GetLength(0);
+            int h = dat.GetLength(1);
+            int[,] kernal = GaussKern(SIZE, sigma, out weight);
+            int[,] op = new int[dat.GetLength(0), dat.GetLength(1)];
+
+            op = dat;
+
+            for(int x=SIZE/2; x<(w-SIZE/2); x++)
+            {
+                for(int y=SIZE/2; y<(h-SIZE/2); y++)
+                {
+                    sum = 0;
+                    for(int i=-SIZE/2; i<=SIZE/2; i++)
+                    {
+                        for(int j=-SIZE/2; j<=SIZE/2; j++)
+                        {
+                            sum += ((float)dat[x + i, y + j] * kernal[SIZE / 2 + i, SIZE / 2 + j]);
+                        }
+                    }
+                    op[x, y] = (int)(Math.Round(sum / (float)weight));
+                }
+            }
+            
+            return op;
         }
 
         /*
@@ -120,35 +159,29 @@ namespace CannyDetection
          * @returns the Bitmap of greyscaled equivalent image
          * @Param Bitmap b: The source image data in 32-bit ARGB word format.
          */
-        public static Bitmap GrayScale(Bitmap b)
+        public static Bitmap GrayScale(Bitmap b, out int[,] greyImage)
         {
             BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
                                                         ImageLockMode.ReadWrite,
                                                         PixelFormat.Format32bppArgb);
-            //blue = 0
-            //green = 1
-            //red = 2
+
+            int[,] grey = new int[b.Width, b.Height];
 
             unsafe
             {
                 byte* p = (byte*)(void*)bData.Scan0;
-                byte r, g, bl;
-                for (int i = 0; i < b.Width; i++)
+                for (int j = 0; j < b.Height; j++)
                 {
-                    for (int j = 0; j < b.Height; j++)
+                    for (int i = 0; i < b.Width; i++)
                     {
-                        bl = p[0];
-                        g = p[1];
-                        r = p[2];
-
-                        p[0] = p[1] = p[2] = (byte)(.299 * r + .587 * g + .114 * bl);
-
+                        grey[i, j] = (int)((p[0] + p[1] + p[2]) / 3.0);
                         p += 4;   //alpha values are ignored for this operation, so we skip over them.
                     }
                     p += (bData.Stride - b.Width * 4);
                 }
             }
             b.UnlockBits(bData);
+            greyImage = grey;
 
             return b;
         }

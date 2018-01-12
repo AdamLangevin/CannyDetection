@@ -215,3 +215,523 @@ Log Entry:  :Friday, December 08, 2017
 Log Entry:  :Total Process Time: 20
 
 Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 04, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Total Process Time: 10
+
+Log Entry:  :Grey Scale  Time: 10
+
+Log Entry:  :Gaussian Time: 12
+
+Log Entry:  :Soble Filtering Time: 13
+
+Log Entry:  :Maximum Suppression Time: 16 Total Time: 16
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Total Process Time: 9
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 8
+
+Log Entry:  :Total Process Time: 32
+
+Log Entry:  :Total Process Time: 34
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 8
+
+Log Entry:  :Total Process Time: 10
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 1
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Total Process Time: 3
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 8
+
+Log Entry:  :Total Process Time: 11
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Grey Scale  Time: 2
+
+Log Entry:  :Gaussian Time: 3
+
+Log Entry:  :Soble Filtering Time: 3
+
+Log Entry:  :Maximum Suppression Time: 4 Total Time: 4
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Grey Scale  Time: 2
+
+Log Entry:  :Gaussian Time: 3
+
+Log Entry:  :Soble Filtering Time: 3
+
+Log Entry:  :Maximum Suppression Time: 4 Total Time: 4
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Soble Filtering Time: 1
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Total Process Time: 3
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Soble Filtering Time: 1
+
+Log Entry:  :Maximum Suppression Time: 1 Total Time: 1
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 1
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :Total Process Time: 3
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Wednesday, January 10, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Grey Scale  Time: 2
+
+Log Entry:  :Gaussian Time: 3
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Grey Scale  Time: 2
+
+Log Entry:  :Gaussian Time: 2
+
+Log Entry:  :Soble Filtering Time: 2
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :Total Process Time: 3
+
+Log Entry:  :Total Process Time: 10
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 1
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Grey Scale  Time: 2
+
+Log Entry:  :Gaussian Time: 2
+
+Log Entry:  :Soble Filtering Time: 2
+
+Log Entry:  :Maximum Suppression Time: 4 Total Time: 4
+
+Log Entry:  :Total Process Time: 6
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Total Process Time: 8
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 1
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Total Process Time: 2
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :Thursday, January 11, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :>------------end------------<

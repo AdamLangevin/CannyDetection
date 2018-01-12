@@ -11,6 +11,38 @@ namespace CannyDetection
         public static int[,] EdgeMap;
         public static int[,] Visited;
         public static int[,] Edges;
+        private static int Lim = (int)5 / 2;
+        private static float MaxHyst = 30f;
+        private static float MinHyst = 10f;
+
+        /*
+         * 
+         */
+        public static float[,] Diff(int[,] dat, int[,] conv, int width, int height)
+        {
+            int w = conv.GetLength(0);
+            int h = conv.GetLength(1);
+            float sum = 0;
+            float[,] res = new float[width, height];
+
+            for(int x=w/2; x < (width - w/2); x++)
+            {
+                for(int y=h/2; y < (height- h/2); y++)
+                {
+                    sum = 0;
+                    for(int i=-w/2; i<=w/2; i++)
+                    {
+                        for(int j=-h/2; j<=h/2; j++)
+                        {
+                            sum += dat[x + i, y + j] * conv[w/2 + i, h/2 + j];
+                        }
+                    }
+                    res[x, y] = sum;
+                }
+            }
+
+            return res;
+        }
 
         /*
         * This class provides the ssecond order differentiation that is needed to get the gradient 
@@ -28,29 +60,22 @@ namespace CannyDetection
             divY = (Bitmap)b.Clone();
             NonMax = (Bitmap)b.Clone();
 
-            //m is used to calcualte the derivative of the pixel values surrounding it,
-            //with respect to each rectangular direction.
-            ConvMatrix m = new ConvMatrix();
-            m.TopLeft = m.MidLeft = m.BottomLeft = 1;
-            m.TopRight = m.MidRight = m.BottomRight = -1;
-            m.TopMid = m.Pixel = m.BottomMid = 0;
+            //with respect to each rectangular direction.           
+            float[,] aDivX = new float[b.Width,b.Height];
+            float[,] aDivY = new float[b.Width,b.Height];
+            int[,] src = convertToIntArray(b);
 
-            divX = Filter.Conv(divX, m);
+            int[,] convX = { { 1, 0, -1 }, { 1, 0, -1 }, { 1, 0, -1 } };
+            aDivX = Diff(src, convX, b.Width, b.Height);
 
-            m.TopLeft = m.TopMid = m.TopRight = 1;
-            m.MidLeft = m.MidRight = m.Pixel = 0;
-            m.BottomLeft = m.BottomMid = m.BottomRight = -1;
-
-            divY = Filter.Conv(divY, m);
-
-            float[,] aDivX = convertToArray(divX);
-            float[,] aDivY = convertToArray(divY);
+            int [,] convY = { { 1,1,1},{ 0,0,0},{ -1,-1,-1} };
+            aDivY = Diff(src, convY, b.Width, b.Height);
+            
             float[,] Grade = new float[b.Width, b.Height];
             float[,] NMax = new float[b.Width, b.Height];
             int[,] postHyst = new int[b.Width, b.Height];
-            int lim = (int)(m.getWidth() / 2);      //the allowable limit due to the size of the convolvement array
-            int nWidthN = NonMax.Width - lim;
-            int nHeightN = NonMax.Height - lim;
+            int nWidthN = NonMax.Width - Lim;
+            int nHeightN = NonMax.Height - Lim;
             float nPixel;
             float tangent = 0;
             float c1 = 0;     //center pixel to be differentiated against
@@ -60,15 +85,11 @@ namespace CannyDetection
             Edges = new int[b.Width, b.Height];
 
             //calculation of the gradeint of values pixel by pixel.
-            for (int y=lim; y<= b.Height-1; ++y)
+            for (int y=Lim; y< b.Height; ++y)
             {
-                for (int x=lim; x<= b.Width-1 ; ++x)
+                for (int x=Lim; x< b.Width ; ++x)
                 {
-                        
-                    c1 = aDivX[x, y] * aDivX[x,y];
-                    c2 = aDivY[x, y] * aDivY[x,y];
-                    nPixel = ((float)(Math.Sqrt(c1 +c2)));
-                    Grade[x,y] = nPixel;
+                    Grade[x,y] = ((float)(Math.Sqrt(aDivX[x, y] * aDivX[x, y] + aDivY[x, y] * aDivY[x, y])));
 
                 }
             }
@@ -86,16 +107,14 @@ namespace CannyDetection
             //Looping through the bitmap, x and y are used as refrences.
             //We lose one pixel around the image, because we are using a 3x3
             //to calculate
-            for (int y = lim; y< nHeightN; y++) {
-                for (int x = lim; x < nWidthN; x++) {
+            for (int y = Lim; y< nHeightN; y++) {
+                for (int x = Lim; x < nWidthN; x++) {
 
                     //setting the tangent angle
-                    c1 = aDivX[x, y];
-                    c2 = aDivY[x, y];
-                    if (c1 == 0) {
+                    if (aDivX[x,y] == 0) {
                         tangent = 90F;
                     } else {
-                        tangent = (float)(Math.Atan(c2 / c1) * 180 / Math.PI);
+                        tangent = (float)(Math.Atan(aDivY[x,y] / aDivX[x,y]) * 180 / Math.PI);
                     }
 
                     //using all three colour channels
@@ -115,7 +134,7 @@ namespace CannyDetection
                     //Vertical Edge, needs to calculate pixels above and bellow
                     c2 = Grade[x + 1, y];
                     c3 = Grade[x - 1, y];
-                    if ((-112.5 < tangent) && (-67.5 <= tangent) || (67.5 < tangent) && (tangent <= 112.5))
+                    if ((-112.5 < tangent) && (tangent <= -67.5) || (67.5 < tangent) && (tangent <= 112.5))
                     {
                         if (c1 < c2 || c1 < c3)
                         {
@@ -127,7 +146,7 @@ namespace CannyDetection
                     //+45 Degree Edge
                     c2 = Grade[x + 1, y - 1];
                     c3 = Grade[x - 1, y + 1];
-                    if ((-67.5<tangent)&&(-22.5<=tangent) || (112.5<tangent)&&(tangent<=157.5))
+                    if ((-67.5 < tangent) && (tangent <= -22.5) || (112.5 < tangent) && (tangent <= 157.5))
                     {
                         if (c1 < c2 || c1 < c3)
                         {
@@ -139,7 +158,7 @@ namespace CannyDetection
                     //-45 Degree Edge
                     c2 = Grade[x + 1, y + 1];
                     c3 = Grade[x - 1, y - 1];
-                    if ((-157.5<tangent)&&(-112.5<=tangent) || (67.5<tangent)&&(tangent<=22.5))
+                    if ((-157.5 < tangent) && (tangent <= -112.5) || (67.5 < tangent) && (tangent <= 22.5))
                     {
                         if (c1<c2 || c1<c3)
                         {
@@ -156,9 +175,9 @@ namespace CannyDetection
             }
 
             //copy the non-max suppressed array, to go and check
-            for (int x = 1; x < b.Width - 1; x++)
+            for (int x = 1; x < b.Width - Lim; x++)
             {
-                for (int y = 1; y < b.Height - 1; y++)
+                for (int y = 1; y < b.Height - Lim; y++)
                 {
                     postHyst[x, y] = (int)NMax[x, y];
                 }
@@ -166,15 +185,12 @@ namespace CannyDetection
 
             EdgeMap = new int[b.Width, b.Height];
             Visited = new int[b.Width, b.Height];
-
-            float MaxHyst = 80f;            //upper threshold, values above this are true edges
-            float MinHyst = 60f;            //lower threshold, values below this are not edges
             
             //check for pixels above the Max, and values that are inbetween
             //The values inbetween might be edges, but require more processing
-            for (int x = 1; x< b.Width - 1; x++)
+            for (int x = Lim; x< b.Width - Lim; x++)
             {
-                for (int y = 1; y<b.Height - 1; y++)
+                for (int y = Lim; y<b.Height - Lim; y++)
                 {
                     if(postHyst[x,y] >= MaxHyst )
                     {
@@ -199,10 +215,8 @@ namespace CannyDetection
                 }
             }
 
-            //convert to Bitmap to be able to display the image
-            NonMax = convertToBitmap(EdgeMap, b.Width, b.Height);
 
-            return NonMax;
+            return convertToBitmap(EdgeMap, b.Width, b.Height);
         }
 
         /*
@@ -312,6 +326,37 @@ namespace CannyDetection
         }
 
         /*
+         * This function operates like the previous function but returns an integer array instead of a float array
+         * @Retruns an int array
+         * @Param Bitmap b: the source image, to be converted.
+         */
+        public static int[,] convertToIntArray(Bitmap b)
+        {
+            int[,] res = new int[b.Width, b.Height];
+            BitmapData bDat = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
+                                        ImageLockMode.ReadOnly,
+                                        PixelFormat.Format32bppArgb);
+
+            unsafe
+            {
+                byte* p = (byte*)(void*)bDat.Scan0;
+
+                for(int y=0; y<b.Height; y++)
+                {
+                    for (int x = 0; x < b.Width; x++)
+                    {
+                        res[x, y] = (int)((p[0] + p[1] + p[2] + p[3]) / 4);
+                        p += 4;
+                    }
+                    p += (bDat.Stride - (bDat.Width * 4));
+                }
+            }
+            b.UnlockBits(bDat);
+
+            return res;
+        }
+
+        /*
          *A function to check the threshold values of nighbours to the pixel elements
          * @Returns no explicite values, implicily changes the EdgeMap, Visited, and Edges arrays.
          * @Param int[,] Edges: is an array which represents 8-bit colour values of a grey image
@@ -320,10 +365,21 @@ namespace CannyDetection
          */
         public static void threshold(int[,] Edges, int w, int h)
         {
-
-            for(int x=1; x<=w-1; x++)
+            int Lim = (int)5 / 2;
+            for(int x=1; x<w-Lim; x++)
             {
-                for(int y=1; y<=h-1; y++)
+                for(int y=1; y<h-Lim; y++)
+                {
+                    if(Edges[x,y] ==1 )
+                    {
+                        EdgeMap[x, y] = 1;
+                    }
+                }
+            }
+
+            for(int x=1; x<w-Lim; x++)
+            {
+                for(int y=1; y<h-Lim; y++)
                 {
                     if(Edges[x,y] == 1)
                     {
