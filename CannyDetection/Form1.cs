@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using AForge.Math.Geometry;
 using System.Collections.Generic;
 using AForge;
+using System.IO;
 
 namespace CannyDetection
 {
@@ -31,6 +32,11 @@ namespace CannyDetection
             watch = new Stopwatch();
             InitializeComponent();
             m = new Bitmap(2, 2);
+        }
+
+        public void startUp(FileStream fileStream)
+        {
+            this.Item(fileStream);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -64,6 +70,23 @@ namespace CannyDetection
                 this.AutoScroll = true;
                 this.AutoScrollMinSize = new Size((int)(m.Width*zoom) , (int)(m.Height*zoom));
                 this.Invalidate();
+            }
+        }
+
+        private void Item(FileStream fileStream)
+        {
+            String filePath = @"C:\\Users\\Py120\\Desktop\\Dev\\objectDetection\\CannyDetection\\Test.jpg";
+            try
+            {
+                FileInfo fileInfo = new FileInfo(filePath);
+                fileStream = File.Open(filePath, FileMode.Open, FileAccess.ReadWrite);
+                m = (Bitmap)System.Drawing.Image.FromStream(fileStream);
+                Application.DoEvents();
+                this.ProcessToNonMax(this,new EventArgs());
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("File not found, Error on the opening function: {0}", ex.ToString());
             }
         }
 
@@ -166,6 +189,7 @@ namespace CannyDetection
             m = MaximumSuppression.convertToBitmap(Filter.ArrayGaussian(greyImage), greyImage.GetLength(0), greyImage.GetLength(1));
             m = PixelDifferentiator.Differentiate(m);
             m = MaximumSuppression.Suppression(m);
+            m = CircleDetector.Cirlces(m);
 
             watch.Stop();
 
