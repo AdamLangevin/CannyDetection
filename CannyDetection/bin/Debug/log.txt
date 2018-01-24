@@ -774,6 +774,3 @@ Log Entry:  :Wednesday, January 24, 2018
 
 Log Entry:  :Total Process Time: 2
 
-Log Entry:  :>-----------end--------------<
-
-Log Entry:  :>------------end------------<
