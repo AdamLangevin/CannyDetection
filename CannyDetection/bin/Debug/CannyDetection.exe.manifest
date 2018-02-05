@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CannyDetection.exe" size="30136">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CannyDetection.exe" size="30648">
       <assemblyIdentity name="CannyDetection" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/wydYGJRQqCuPfwLB/+CRf7bdLVADprE0GmEmuaJgZA=</dsig:DigestValue>
+        <dsig:DigestValue>P65Budejw3Db/q4gg0RTY9AT2+YhAI/NerdiTJnNV1A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

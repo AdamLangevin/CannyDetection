@@ -14,8 +14,8 @@ namespace CannyDetection
 {
     public class CircleDetector
     {
-        private static float MinAcceptDist = 0.7f;      //needs to be refined
-        private static float RelDistLim = 0.15f;        //needs to be refined, seems to be on the threshold though for the current setup
+        private static float MinAcceptDist = 0.8f;      //needs to be refined
+        private static float RelDistLim = 0.05f;        //needs to be refined, seems to be on the threshold though for the current setup
                                                         //not sure how noise will change this
 
         /*
@@ -59,10 +59,12 @@ namespace CannyDetection
 
             SimpleShapeChecker shaper = new SimpleShapeChecker();
             shaper.MinAcceptableDistortion = MinAcceptDist;
-            shaper.RelativeDistortionLimit = RelDistLim;                         
+            //shaper.RelativeDistortionLimit = RelDistLim;                         
 
             Graphics g = Graphics.FromImage(b);
             Pen pen = new Pen(Color.Blue, 3);
+
+            List<AForge.Point> centers = new List<AForge.Point>();
 
             //The actual checker looking for any circle like objects in the frame.
             for (int i=0; i< blobs.Length; i++)
@@ -74,11 +76,21 @@ namespace CannyDetection
                     g.DrawEllipse(pen,
                         (float)(center.X - rad), (float)(center.Y - rad),
                         (float)(rad * 2), (float)(rad * 2));
+                    centers.Add(center);
+                    drawCent(center, g);
                 }
             }
 
             return b;
         }
 
+        private static void drawCent(AForge.Point center, Graphics g)
+        {
+            System.Drawing.Point p1 = new System.Drawing.Point((int)center.X, (int)center.Y);
+            Pen pen = new Pen(Color.Green, 2);
+
+            g.DrawLine(pen, new System.Drawing.Point(p1.X - 3, p1.Y), new System.Drawing.Point(p1.X + 3, p1.Y));
+            g.DrawLine(pen, new System.Drawing.Point(p1.X, p1.Y - 3), new System.Drawing.Point(p1.X, p1.Y + 3));
+        }
     }
 }

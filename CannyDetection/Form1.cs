@@ -75,7 +75,7 @@ namespace CannyDetection
 
         private void Item(FileStream fileStream)
         {
-            String filePath = @"C:\\Users\\Py120\\Desktop\\Dev\\objectDetection\\CannyDetection\\Test.jpg";
+            String filePath = @"C:\\Users\\Py120\\Desktop\\Dev\\objectDetection\\CannyDetection\\Test_manyBalls.jpg";
             try
             {
                 FileInfo fileInfo = new FileInfo(filePath);
