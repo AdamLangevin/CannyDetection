@@ -14,8 +14,8 @@ namespace CannyDetection
 {
     public class CircleDetector
     {
-        private static float MinAcceptDist = 0.8f;      //needs to be refined
-        private static float RelDistLim = 0.05f;        //needs to be refined, seems to be on the threshold though for the current setup
+        private static float MinAcceptDist = 0.3f;      //needs to be refined
+        private static float RelDistLim = 0.03f;        //needs to be refined, seems to be on the threshold though for the current setup
                                                         //not sure how noise will change this
 
         /*
@@ -59,7 +59,7 @@ namespace CannyDetection
 
             SimpleShapeChecker shaper = new SimpleShapeChecker();
             shaper.MinAcceptableDistortion = MinAcceptDist;
-            //shaper.RelativeDistortionLimit = RelDistLim;                         
+            shaper.RelativeDistortionLimit = RelDistLim;                         
 
             Graphics g = Graphics.FromImage(b);
             Pen pen = new Pen(Color.Blue, 3);

@@ -34,9 +34,15 @@ namespace CannyDetection
             m = new Bitmap(2, 2);
         }
 
-        public void startUp(FileStream fileStream)
+        public void startUp(FileStream fileStream, Boolean runFull)
         {
-            this.Item(fileStream);
+            if (runFull)
+            {
+                this.Item(fileStream);
+            } else
+            {
+                this.nonAuto(fileStream);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -75,7 +81,7 @@ namespace CannyDetection
 
         private void Item(FileStream fileStream)
         {
-            String filePath = @"C:\\Users\\Py120\\Desktop\\Dev\\objectDetection\\CannyDetection\\Test_manyBalls.jpg";
+            String filePath = @"C:\\Users\\misfi\\Desktop\\Dev\\ObjectDetection\\CannyDetection\\Test_manyBalls.jpg";
             try
             {
                 FileInfo fileInfo = new FileInfo(filePath);
@@ -87,6 +93,18 @@ namespace CannyDetection
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine("File not found, Error on the opening function: {0}", ex.ToString());
+            }
+        }
+
+        private void nonAuto(FileStream filestream)
+        {
+            try
+            {
+                LoadItem_Click(this, new EventArgs());
+            }
+            catch(FileNotFoundException ex)
+            {
+                Console.WriteLine("Error occured: {0}", ex.ToString());
             }
         }
 
@@ -212,6 +230,15 @@ namespace CannyDetection
             
             u = (Bitmap)m.Clone();
             m = CircleDetector.Cirlces(m);
+
+            this.Refresh();
+        }
+
+        private void background(object sender, EventArgs e)
+        {
+            u = (Bitmap)m.Clone();
+            m = Filter.blackBackground(m, out greyImage);
+            m = MaximumSuppression.convertToBitmap(greyImage, greyImage.GetLength(0), greyImage.GetLength(1));
 
             this.Refresh();
         }

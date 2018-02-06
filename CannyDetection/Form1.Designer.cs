@@ -45,6 +45,7 @@
             this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drawCircleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +95,7 @@
             // preProcessingToolStripMenuItem
             // 
             this.preProcessingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backgroundToolStripMenuItem,
             this.grayScaleToolStripMenuItem,
             this.gaussianToolStripMenuItem,
             this.filterToolStripMenuItem,
@@ -182,6 +184,13 @@
             this.distanceToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.distanceToolStripMenuItem.Text = "Distance";
             // 
+            // backgroundToolStripMenuItem
+            // 
+            this.backgroundToolStripMenuItem.Name = "backgroundToolStripMenuItem";
+            this.backgroundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.backgroundToolStripMenuItem.Text = "Background";
+            this.backgroundToolStripMenuItem.Click += new System.EventHandler(this.background);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,6 +228,7 @@
         private System.Windows.Forms.ToolStripMenuItem edgeDetectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gaussianToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem processToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backgroundToolStripMenuItem;
     }
 }
 

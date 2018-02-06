@@ -12,8 +12,8 @@ namespace CannyDetection
         public static int[,] Visited;
         public static int[,] Edges;
         private static int Lim = (int)5 / 2;
-        private static float MaxHyst = 30f;
-        private static float MinHyst = 10f;
+        private static float MaxHyst = 60f;
+        private static float MinHyst = 40f;
 
         /*
          * 

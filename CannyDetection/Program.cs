@@ -9,6 +9,8 @@ namespace CannyDetection
 {
     static class Program
     {
+        private static Boolean runFull = false;
+
         class MyContext : ApplicationContext
         {
             private Form1 form1;
@@ -20,8 +22,8 @@ namespace CannyDetection
                 form1 = new Form1();
                 try
                 {
-                    form1.startUp(fileStream);
-
+                    form1.startUp(fileStream, runFull);
+                    
                 }
                 catch (FileNotFoundException ex)
                 {

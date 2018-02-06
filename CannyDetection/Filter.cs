@@ -154,6 +154,39 @@ namespace CannyDetection
             return kern;
         }
 
+        public static Bitmap blackBackground(Bitmap b, out int[,] blackedout)
+        {
+            BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
+                                                        ImageLockMode.ReadWrite,
+                                                        PixelFormat.Format32bppArgb);
+            int[,] back = new int[b.Width, b.Height];
+
+            unsafe
+            {
+                byte* p = (byte*)(void*)bData.Scan0;
+                for (int j = 0; j < b.Height; j++)
+                {
+                    for (int i = 0; i < b.Width; i++)
+                    {
+                        if ((p[0] < 180) && p[1] < 255 && (p[2] < 180))
+                        {
+                            back[i, j] = 0;  
+
+                        } else
+                        {
+                            back[i, j] = (int)((p[0] + p[1] + p[2]) / 3);
+                        }
+                        p += 4;
+                    }
+                    p += (bData.Stride - b.Width * 4);
+                }
+            }
+            b.UnlockBits(bData);
+            blackedout = back;
+
+            return b;
+        }
+
         /*
          * Conversion function to a grey scaled image. The input is a Bitmap of ARGB 32-bit words.
          * @returns the Bitmap of greyscaled equivalent image
