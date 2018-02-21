@@ -1362,3 +1362,199 @@ Log Entry:  :Gaussian Time: 1
 Log Entry:  :Soble Filtering Time: 1
 
 Log Entry:  :Maximum Suppression Time: 1 Total Time: 1
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Gaussian Time: 3
+
+Log Entry:  :Soble Filtering Time: 3
+
+Log Entry:  :Maximum Suppression Time: 9 Total Time: 9
+
+Log Entry:  :Gaussian Time: 9
+
+Log Entry:  :Gaussian Time: 9
+
+Log Entry:  :Soble Filtering Time: 9
+
+Log Entry:  :Maximum Suppression Time: 9 Total Time: 9
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Soble Filtering Time: 1
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :Gaussian Time: 2
+
+Log Entry:  :Gaussian Time: 2
+
+Log Entry:  :Soble Filtering Time: 2
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Gaussian Time: 2
+
+Log Entry:  :Soble Filtering Time: 3
+
+Log Entry:  :Maximum Suppression Time: 9 Total Time: 9
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 1 Total Time: 1
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Soble Filtering Time: 1
+
+Log Entry:  :Maximum Suppression Time: 1 Total Time: 1
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Gaussian Time: 1
+
+Log Entry:  :Soble Filtering Time: 1
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :Gaussian Time: 2
+
+Log Entry:  :Gaussian Time: 2
+
+Log Entry:  :Soble Filtering Time: 2
+
+Log Entry:  :Maximum Suppression Time: 2 Total Time: 2
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Grey Scale  Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
+
+Log Entry:  :February 13, 2018
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Gaussian Time: 0
+
+Log Entry:  :Soble Filtering Time: 0
+
+Log Entry:  :Maximum Suppression Time: 0 Total Time: 0
