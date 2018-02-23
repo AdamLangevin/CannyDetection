@@ -9,7 +9,7 @@ namespace CannyDetection
 {
     static class Program
     {
-        private static Boolean runFull = false;
+        private static Boolean runFull = true;      //used to start either in debug mode or run in automatic mode.
 
         class MyContext : ApplicationContext
         {

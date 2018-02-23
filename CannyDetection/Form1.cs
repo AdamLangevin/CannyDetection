@@ -81,7 +81,7 @@ namespace CannyDetection
 
         private void Item(FileStream fileStream)
         {
-            String filePath = @"C:\\Users\\misfi\\Desktop\\Dev\\ObjectDetection\\CannyDetection\\Test_manyBalls.jpg";
+            String filePath = @"C:\Users\py120\Desktop\Dev\objectDetection\CannyDetection\Test_2Balls.jpg";
             try
             {
                 FileInfo fileInfo = new FileInfo(filePath);
@@ -202,8 +202,9 @@ namespace CannyDetection
             watch.Start();
 
             u = (Bitmap)m.Clone();
-            m = Filter.GrayScale(m, out greyImage);
+            m = Filter.blackBackground(m, out greyImage);
             m = MaximumSuppression.convertToBitmap(greyImage, greyImage.GetLength(0), greyImage.GetLength(1));
+            m = MaximumSuppression.convertToBitmap(Filter.ArrayGaussian(greyImage), greyImage.GetLength(0), greyImage.GetLength(1));
             m = MaximumSuppression.convertToBitmap(Filter.ArrayGaussian(greyImage), greyImage.GetLength(0), greyImage.GetLength(1));
             m = PixelDifferentiator.Differentiate(m);
             m = MaximumSuppression.Suppression(m);

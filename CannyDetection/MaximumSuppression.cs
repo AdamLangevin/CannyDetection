@@ -46,7 +46,7 @@ namespace CannyDetection
 
         /*
         * This class provides the ssecond order differentiation that is needed to get the gradient 
-        * used to determine the directions the change is the values are moving in. This helps to
+        * used to determine the directions of the change in values are pointing to. This helps to
         * determine the pixels that are needed to be suppressed.
         * @returns the Bitmap of the filtered image shown in black and white 32-bit ARGB word format.
         * @Param Bitmap b: the source Bitmap

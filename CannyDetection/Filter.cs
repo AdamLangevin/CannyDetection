@@ -154,6 +154,13 @@ namespace CannyDetection
             return kern;
         }
 
+        /*
+         * This function removes any green color in the background
+         * @returns a bitmap, with the changes applied to the background color.
+         * @Param Bitmap b: the inout bitmap that will have the filter applied to it
+         * @Param out int[,] blacdout: alternate output of the image blacked out, as 
+         * as an integer array representing the grey scaled color of the input Bitmap.
+         */
         public static Bitmap blackBackground(Bitmap b, out int[,] blackedout)
         {
             BitmapData bData = b.LockBits(new Rectangle(0, 0, b.Width, b.Height),
