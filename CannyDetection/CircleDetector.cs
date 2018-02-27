@@ -136,7 +136,8 @@ namespace CannyDetection
             int CX = width / 2;
             int CY = height / 2;
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\py120\Desktop\Dev\objectDetection\CannyDetection\distances.txt"))
+            //using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\py120\Desktop\Dev\objectDetection\CannyDetection\distances.txt"))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"~/home/pi/Dev/CannyDetection/distances.txt"))
             {
                 foreach (circ cir in c)
                 {
