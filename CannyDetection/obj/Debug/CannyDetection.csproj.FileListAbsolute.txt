@@ -39,3 +39,9 @@ C:\Users\misfi\Desktop\Dev\ObjectDetection\CannyDetection\CannyDetection\bin\Deb
 C:\Users\misfi\Desktop\Dev\ObjectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.exe.manifest
 C:\Users\misfi\Desktop\Dev\ObjectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.application
 C:\Users\py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\obj\Debug\CannyDetection.csprojResolveAssemblyReference.cache
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.dll
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.Imaging.dll
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.Math.dll
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.xml
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.Imaging.xml
+C:\Users\Py120\Desktop\Dev\objectDetection\CannyDetection\CannyDetection\bin\Debug\AForge.Math.xml
