@@ -2,11 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using AForge.Imaging;
-using System.Drawing.Imaging;
-using AForge.Math.Geometry;
-using System.Collections.Generic;
-using AForge;
 using System.IO;
 
 namespace CannyDetection

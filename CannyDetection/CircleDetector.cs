@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Linq;
 
 using AForge;
 using AForge.Imaging;
@@ -105,7 +103,7 @@ namespace CannyDetection
                 }
             }
 
-            if (centers.Count() == 0)
+            if (centers.Count == 0)
             {
                 System.Console.WriteLine("Empty List, no circles detected.");
             } else
