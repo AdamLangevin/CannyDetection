@@ -15,9 +15,7 @@ namespace CannyDetection
     {
         private Bitmap m;      //active bitmap field
         private Bitmap u;      //copy of active bitmap
-#pragma warning disable CS0169 // The field 'Form1.mainMenu' is never used
         private MainMenu mainMenu;
-#pragma warning restore CS0169 // The field 'Form1.mainMenu' is never used
         private double zoom =1.0;
         private Stopwatch watch;
         private double timeElapsed;
