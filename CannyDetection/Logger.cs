@@ -23,7 +23,9 @@ namespace CannyDetection
                     Log(m, w);
                 }
             }
+#pragma warning disable CS0168 // The variable 'e' is declared but never used
             catch (Exception e)
+#pragma warning restore CS0168 // The variable 'e' is declared but never used
             {
                 
             }
@@ -38,7 +40,9 @@ namespace CannyDetection
                  //                       DateTime.Now.ToLongDateString());
                 w.WriteLine(" :{0}", m);
             }
+#pragma warning disable CS0168 // The variable 'e' is declared but never used
             catch (Exception e)
+#pragma warning restore CS0168 // The variable 'e' is declared but never used
             {
 
             }

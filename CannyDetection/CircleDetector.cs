@@ -136,7 +136,7 @@ namespace CannyDetection
             int CX = width / 2;
             int CY = height / 2;
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\py120\Desktop\Dev\objectDetection\CannyDetection\distances.txt"))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\py120\Desktop\Dev\robotServer\public\uploads\distances.txt"))
             {
                 foreach (circ cir in c)
                 {
@@ -148,7 +148,7 @@ namespace CannyDetection
                     angle = (180/Math.PI) * Math.Atan((CX - cir.getP().X)/dist); 
 
                     line = Convert.ToString(dist);
-                    line +=" , " + Convert.ToString(angle);
+                    line +=", " + Convert.ToString(angle);
 
                     System.Console.WriteLine("Circle located at a distance of: {0}, angle of {1} degrees from center.", dist, angle);
                         //cir.getP().X, cir.getP().Y, cir.getRad()*2);

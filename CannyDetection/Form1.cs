@@ -15,7 +15,9 @@ namespace CannyDetection
     {
         private Bitmap m;      //active bitmap field
         private Bitmap u;      //copy of active bitmap
+#pragma warning disable CS0169 // The field 'Form1.mainMenu' is never used
         private MainMenu mainMenu;
+#pragma warning restore CS0169 // The field 'Form1.mainMenu' is never used
         private double zoom =1.0;
         private Stopwatch watch;
         private double timeElapsed;
@@ -85,24 +87,31 @@ namespace CannyDetection
             try
             {
                 FileInfo fileInfo = new FileInfo(filePath);
-                fileStream = File.Open(filePath, FileMode.Open, FileAccess.ReadWrite);
+                //fileStream = File.Open(filePath, FileMode.Open, FileAccess.ReadWrite);
                 m = (Bitmap)System.Drawing.Image.FromStream(fileStream);
                 Application.DoEvents();
-                this.ProcessToNonMax(this,new EventArgs());
+                this.ProcessToNonMax();
             }
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine("File not found, Error on the opening function: {0}", ex.ToString());
             }
+            Environment.Exit(0);
+            //this.Close();
         }
 
-        private void nonAuto(FileStream filestream)
+        private void nonAuto(FileStream fileStream)
         {
             try
             {
-                LoadItem_Click(this, new EventArgs());
+                String filePath = @"C:\Users\py120\Desktop\Dev\objectDetection\CannyDetection\Test_2Balls.jpg";
+                FileInfo fileInfo = new FileInfo(filePath);
+                m = (Bitmap)System.Drawing.Image.FromStream(fileStream);
+                Application.DoEvents();
+
+                //LoadItem_Click(this, new EventArgs());
             }
-            catch(FileNotFoundException ex)
+            catch (FileNotFoundException ex)
             {
                 Console.WriteLine("Error occured: {0}", ex.ToString());
             }
@@ -127,7 +136,8 @@ namespace CannyDetection
         private void ExitItem(object sender, EventArgs e)
         {
             l.log(">-----------end--------------<");
-            this.Close();
+            Environment.Exit(1);
+            //this.Close();
         }
 
         private void GaussianItem(object sender, EventArgs e)
@@ -197,7 +207,7 @@ namespace CannyDetection
             this.Refresh();
         }
 
-        private void ProcessToNonMax(object sender, EventArgs e)
+        private void ProcessToNonMax()
         {
             watch.Start();
 

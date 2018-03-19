@@ -9,7 +9,7 @@ namespace CannyDetection
 {
     static class Program
     {
-        private static Boolean runFull = true;      //used to start either in debug mode or run in automatic mode.
+        private static Boolean runFull = false;      //used to start either in debug mode or run in automatic mode.
 
         class MyContext : ApplicationContext
         {
@@ -17,9 +17,10 @@ namespace CannyDetection
 
             private FileStream fileStream;
 
-            public MyContext()
+            public MyContext(FileStream file)
             {
                 form1 = new Form1();
+                fileStream = file;
                 try
                 {
                     form1.startUp(fileStream, runFull);
@@ -37,10 +38,26 @@ namespace CannyDetection
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            MyContext context = new MyContext();
+            String file = @"C:\Users\py120\Desktop\Dev\robotServer\public\uploads\Test.jpg";
+            FileInfo fileinfo = new FileInfo(file);
+            FileStream fileStream;
+            fileStream  = File.Open(file, FileMode.Open, FileAccess.ReadWrite);
+
+            MyContext context = new MyContext(fileStream);
             Application.Run(context);
+
+            if (Application.MessageLoop)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
+            
+            
         }
     }
 }

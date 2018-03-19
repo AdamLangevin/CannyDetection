@@ -85,17 +85,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cuXxftFZCNRXAykViTku9rb/qEmjBRCLNYIMrvQBEbk=</dsig:DigestValue>
+        <dsig:DigestValue>Xb6NsvBCsDDrWt2RHGK/QrndVub9QvBTdFCvTDFnYDI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CannyDetection.exe.config" size="499">
+  <file name="CannyDetection.exe.config" size="496">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>BDxxdiJtjbiM2IRuVtEfISTC3F5PAawd/R7OUVcL0bg=</dsig:DigestValue>
+      <dsig:DigestValue>WjcsXC1SvPbgvAlKNj7ohwc/JrwUrJQ3K53IzdVije8=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
