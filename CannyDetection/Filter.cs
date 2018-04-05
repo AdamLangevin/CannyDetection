@@ -158,7 +158,7 @@ namespace CannyDetection
          * This function removes any green color in the background
          * @returns a bitmap, with the changes applied to the background color.
          * @Param Bitmap b: the inout bitmap that will have the filter applied to it
-         * @Param out int[,] blacdout: alternate output of the image blacked out, as 
+         * @Param out int[,] blackedout: alternate output of the image blacked out, as 
          * as an integer array representing the grey scaled color of the input Bitmap.
          */
         public static Bitmap blackBackground(Bitmap b, out int[,] blackedout)
@@ -175,7 +175,8 @@ namespace CannyDetection
                 {
                     for (int i = 0; i < b.Width; i++)
                     {
-                        if ((p[0] < 180) && p[1] < 255 && (p[2] < 180))
+                        //values used to select out green shades, then grey scale others
+                        if ((p[0] < 180) && (p[1] < 255) && (p[2] < 180)) 
                         {
                             back[i, j] = 0;  
 

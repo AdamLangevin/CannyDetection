@@ -76,9 +76,6 @@ namespace CannyDetection
             int[,] postHyst = new int[b.Width, b.Height];
             int nWidthN = NonMax.Width - Lim;
             int nHeightN = NonMax.Height - Lim;
-#pragma warning disable CS0168 // The variable 'nPixel' is declared but never used
-            float nPixel;
-#pragma warning restore CS0168 // The variable 'nPixel' is declared but never used
             float tangent = 0;
             float c1 = 0;     //center pixel to be differentiated against
             float c2 = 0;     //test pixel one

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="CannyDetection.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="CannyDetection.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="CannyDetection" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -78,18 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CannyDetection.exe" size="33208">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CannyDetection.exe" size="32696">
       <assemblyIdentity name="CannyDetection" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-<<<<<<< HEAD
-        <dsig:DigestValue>Xb6NsvBCsDDrWt2RHGK/QrndVub9QvBTdFCvTDFnYDI=</dsig:DigestValue>
-=======
-        <dsig:DigestValue>QOBZhj3LJJNsIa4zctQM2zmL2Ki36YA4Adl7C9kpaXk=</dsig:DigestValue>
->>>>>>> 8aa3a8295ec44f4e0622aa9ba163e3694b746171
+        <dsig:DigestValue>TjI4N48wBWkiosHnpUKEsblTnB8Ku/Axrmo/2jUeRZc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

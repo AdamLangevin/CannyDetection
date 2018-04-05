@@ -2222,3 +2222,169 @@ Log Entry:  :Soble Filtering Time: 2
 Log Entry:  :Maximum Suppression Time: 3 Total Time: 3
 
 Log Entry:  :>------------end------------<
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :>-----------end--------------<
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 17
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 14
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 14
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :March 27, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :April 4, 2018
+
+Log Entry:  :April 4, 2018
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :Total Process Time: 0
+
+Log Entry:  :Total Process Time: 8
+
+Log Entry:  :Total Process Time: 8
+
+Log Entry:  :Total Process Time: 9
+
+Log Entry:  :Total Process Time: 9
+
+Log Entry:  :Grey Scale  Time: 9
+
+Log Entry:  :Gaussian Time: 10
+
+Log Entry:  :Gaussian Time: 10
+
+Log Entry:  :Soble Filtering Time: 10
+
+Log Entry:  :Maximum Suppression Time: 10 Total Time: 10
+
+Log Entry:  :Total Process Time: 10
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 18

@@ -251,5 +251,12 @@ namespace CannyDetection
 
             this.Refresh();
         }
+
+        private void ProcessToNonMax(object sender, EventArgs e)
+        {
+            this.ProcessToNonMax();
+
+            this.Refresh();
+        }
     }
 }

@@ -149,6 +149,7 @@ namespace CannyDetection
 
                     line = Convert.ToString(dist);
                     line +=", " + Convert.ToString(angle);
+                    line += ", 0.5";
 
                     System.Console.WriteLine("Circle located at a distance of: {0}, angle of {1} degrees from center.", dist, angle);
                         //cir.getP().X, cir.getP().Y, cir.getRad()*2);

@@ -43,8 +43,6 @@
             this.edgeDetectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.drawCircleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.distanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,21 +103,21 @@
             // backgroundToolStripMenuItem
             // 
             this.backgroundToolStripMenuItem.Name = "backgroundToolStripMenuItem";
-            this.backgroundToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.backgroundToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.backgroundToolStripMenuItem.Text = "Background";
             this.backgroundToolStripMenuItem.Click += new System.EventHandler(this.background);
             // 
             // grayScaleToolStripMenuItem
             // 
             this.grayScaleToolStripMenuItem.Name = "grayScaleToolStripMenuItem";
-            this.grayScaleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.grayScaleToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.grayScaleToolStripMenuItem.Text = "GrayScale";
             this.grayScaleToolStripMenuItem.Click += new System.EventHandler(this.GrayScaleItem);
             // 
             // gaussianToolStripMenuItem
             // 
             this.gaussianToolStripMenuItem.Name = "gaussianToolStripMenuItem";
-            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.gaussianToolStripMenuItem.Text = "Gaussian";
             this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.GaussianItem);
             // 
@@ -130,7 +128,7 @@
             this.maxSuppressionToolStripMenuItem,
             this.edgeDetectToolStripMenuItem});
             this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.filterToolStripMenuItem.Text = "Canny";
             // 
             // sobleToolStripMenuItem
@@ -157,9 +155,7 @@
             // processingToolStripMenuItem
             // 
             this.processingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.centerToolStripMenuItem,
-            this.drawCircleToolStripMenuItem,
-            this.distanceToolStripMenuItem});
+            this.centerToolStripMenuItem});
             this.processingToolStripMenuItem.Name = "processingToolStripMenuItem";
             this.processingToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.processingToolStripMenuItem.Text = "Processing";
@@ -167,20 +163,9 @@
             // centerToolStripMenuItem
             // 
             this.centerToolStripMenuItem.Name = "centerToolStripMenuItem";
-            this.centerToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.centerToolStripMenuItem.Text = "Center";
-            // 
-            // drawCircleToolStripMenuItem
-            // 
-            this.drawCircleToolStripMenuItem.Name = "drawCircleToolStripMenuItem";
-            this.drawCircleToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.drawCircleToolStripMenuItem.Text = "DrawCircle";
-            // 
-            // distanceToolStripMenuItem
-            // 
-            this.distanceToolStripMenuItem.Name = "distanceToolStripMenuItem";
-            this.distanceToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.distanceToolStripMenuItem.Text = "Distance";
+            this.centerToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.centerToolStripMenuItem.Text = "Process Picture";
+            this.centerToolStripMenuItem.Click += new System.EventHandler(this.ProcessToNonMax);
             // 
             // Form1
             // 
@@ -211,8 +196,6 @@
         private System.Windows.Forms.ToolStripMenuItem grayScaleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem processingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem centerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem drawCircleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem distanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maxSuppressionToolStripMenuItem;
