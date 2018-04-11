@@ -121,7 +121,7 @@ namespace CannyDetection
             SaveFileDialog save = new SaveFileDialog();
 
             save.InitialDirectory = "c:\\Users\\";
-            save.Filter = "Bitmap Files(*.bmp)|*.bmp|Jpeg files(*.jpg)|*.jpg|Png files(*.png)|*.png|All Vaild files(*.bmp/*.png/*.jpg)|*.bmp/*.png/*.jpg";
+            save.Filter = "Bitmap Files(*.bmp)|*.bmp|Jpeg files(*.jpg)|*.jpg|Png files(*.png)|*.png|JPEG files(*.jpeg)|*.jpeg|All Vaild files(*.bmp/*.png/*.jpg)|*.bmp/*.png/*.jpg/*.jpeg";
             save.FilterIndex = 1;
             save.RestoreDirectory = true;
 

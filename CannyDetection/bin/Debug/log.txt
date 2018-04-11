@@ -2388,3 +2388,89 @@ Log Entry:  :Total Process Time: 12
 Log Entry:  :April 5, 2018
 
 Log Entry:  :Total Process Time: 18
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 12
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :April 5, 2018
+
+Log Entry:  :Total Process Time: 13
+
+Log Entry:  :April 6, 2018
+
+Log Entry:  :Total Process Time: 17
+
+Log Entry:  :Gaussian Time: 19
+
+Log Entry:  :Gaussian Time: 21
+
+Log Entry:  :Soble Filtering Time: 23
+
+Log Entry:  :April 10, 2018
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :April 10, 2018
+
+Log Entry:  :>------------end------------<
+
+Log Entry:  :April 10, 2018
+
+Log Entry:  :April 10, 2018
